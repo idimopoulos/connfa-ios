@@ -13,7 +13,6 @@
 #import "DCConstants.h"
 #import "NSUserDefaults+DC.h"
 #import "DCAlertsManager.h"
-#import <SVProgressHUD.h>
 
 @interface DCProgramViewController (){
   NSString *titleString;
@@ -456,10 +455,6 @@
                                                      }
                                                      NSArray* schedulesForId = [[DCMainProxy sharedProxy] getScheduleWithId:addScheduleAlert.textFields.firstObject.text];
                                                      if(!schedulesForId.count){
-                                                       [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-                                                       [SVProgressHUD setDefaultAnimationType:SVProgressHUDAnimationTypeNative];
-                                                       [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-                                                       [SVProgressHUD showWithStatus: @"Loading schedule..."];
                                                        [[DCMainProxy sharedProxy] getSchedule:addScheduleAlert.textFields.firstObject.text callback:^(BOOL success, NSDictionary* scheduleDictionary){
                                                          if(success){
                                                            [self dismissProgressHUD];
@@ -675,7 +670,7 @@
 
 -(void)dismissProgressHUD{
   dispatch_async(dispatch_get_main_queue(), ^{
-    [SVProgressHUD dismiss];
+    //[SVProgressHUD dismiss];
   });
 }
 
