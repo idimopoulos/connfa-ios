@@ -125,7 +125,7 @@ const NSString *kDCEventOrderKey = @"order";
         level.levelId = @(levelID);
         level.name = @"";
         level.order = @(100);
-        level.selectedInFilter = [NSNumber numberWithBool:YES];
+        level.selectedInFilter = @YES;
     }
     [level addEventsObject:self];
 }
@@ -144,7 +144,7 @@ const NSString *kDCEventOrderKey = @"order";
         track = [DCTrack createManagedObjectInContext:self.managedObjectContext];
         track.trackId = @(trackId);
         track.name = @"";
-        track.selectedInFilter = [NSNumber numberWithBool:YES];
+        track.selectedInFilter = @YES;
     }
     [track addEventsObject:self];
 }

@@ -33,9 +33,9 @@ static NSString *goldenSponsorKey = @"GoldSponsorHeaders";
 - (void)makeRandomGoldenSponsor {
     NSString *plistFile = [[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"];
     NSDictionary *plistFileDictionary = [NSDictionary dictionaryWithContentsOfFile:plistFile];
-    NSArray *headerNames = [plistFileDictionary objectForKey:goldenSponsorKey];
+    NSArray *headerNames = plistFileDictionary[goldenSponsorKey];
     int randomIndex = arc4random_uniform((int) headerNames.count);
-    NSString *headerName = [headerNames objectAtIndex:randomIndex];
+    NSString *headerName = headerNames[randomIndex];
     self.sponsorBannerName = headerName;
 }
 

@@ -136,17 +136,13 @@
     const id nul = [NSNull null];
     const NSString *blank = @"";
     for (int idx = 0; idx < [replaced count]; idx++) {
-        id object = [replaced objectAtIndex:idx];
+        id object = replaced[idx];
         if (object == nul)
-            [replaced replaceObjectAtIndex:idx withObject:blank];
+            replaced[idx] = blank;
         else if ([object isKindOfClass:[NSDictionary class]])
-            [replaced
-                    replaceObjectAtIndex:idx
-                              withObject:[object dictionaryByReplacingNullsWithStrings]];
+            replaced[idx] = [object dictionaryByReplacingNullsWithStrings];
         else if ([object isKindOfClass:[NSArray class]])
-            [replaced
-                    replaceObjectAtIndex:idx
-                              withObject:[object dictionaryByReplacingNullsWithStrings]];
+            replaced[idx] = [object dictionaryByReplacingNullsWithStrings];
     }
     return [replaced copy];
 }

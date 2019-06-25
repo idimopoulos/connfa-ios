@@ -10,15 +10,13 @@
     const NSString *blank = @"";
 
     for (NSString *key in self) {
-        id object = [self objectForKey:key];
+        id object = self[key];
         if (object == nul)
-            [replaced setObject:blank forKey:key];
+            replaced[key] = blank;
         else if ([object isKindOfClass:[NSDictionary class]])
-            [replaced setObject:[object dictionaryByReplacingNullsWithStrings]
-                         forKey:key];
+            replaced[key] = [object dictionaryByReplacingNullsWithStrings];
         else if ([object isKindOfClass:[NSArray class]])
-            [replaced setObject:[object dictionaryByReplacingNullsWithStrings]
-                         forKey:key];
+            replaced[key] = [object dictionaryByReplacingNullsWithStrings];
     }
     return [NSDictionary dictionaryWithDictionary:[replaced copy]];
 }

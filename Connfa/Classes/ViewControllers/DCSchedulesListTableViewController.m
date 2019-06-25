@@ -103,7 +103,7 @@
     if (indexPath.row == 0) {
         cell.textLabel.text = @"My Schedule";
     } else {
-        DCSharedSchedule *sharedSchedule = [schedules objectAtIndex:indexPath.row - 1];
+        DCSharedSchedule *sharedSchedule = schedules[indexPath.row - 1];
         cell.textLabel.text = sharedSchedule.name;
     }
 
@@ -123,7 +123,7 @@
     if (indexPath.row == 0) {
         _selectedSchedule = nil;
     } else {
-        _selectedSchedule = [schedules objectAtIndex:indexPath.row - 1];
+        _selectedSchedule = schedules[indexPath.row - 1];
     }
 
     if (selectedIndexPath.row != indexPath.row) {

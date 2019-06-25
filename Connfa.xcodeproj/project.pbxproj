@@ -126,7 +126,6 @@
 		288C5F511E6D9E4A00F07CB4 /* DCLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C5F1471BF4E9C50093AD65 /* DCLocation.m */; };
 		288C5F521E6D9E4A00F07CB4 /* DCSpeakerHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C5F20F1BF4E9C60093AD65 /* DCSpeakerHeaderCell.m */; };
 		288C5F541E6D9E4A00F07CB4 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842B5E641AC579D0009614A5 /* AdSupport.framework */; };
-		288C5F551E6D9E4A00F07CB4 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 842B5E621AC579C2009614A5 /* libz.dylib */; };
 		288C5F561E6D9E4A00F07CB4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74356D5119BEE1D90055F13D /* SystemConfiguration.framework */; };
 		288C5F571E6D9E4A00F07CB4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E67C7619B6FEF500DF9D71 /* CoreLocation.framework */; };
 		288C5F581E6D9E4A00F07CB4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74A470E719B5EA3C00B01BC5 /* MapKit.framework */; };
@@ -143,14 +142,12 @@
 		288C5F651E6D9E4A00F07CB4 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A060912E1CD0E13500B8C2FD /* TwitterKitResources.bundle */; };
 		288C5F661E6D9E4A00F07CB4 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F547A7E11D537C3200CD24F2 /* Montserrat-Regular.otf */; };
 		288C5F671E6D9E4A00F07CB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6C5F2191BF4E9C60093AD65 /* Main.storyboard */; };
-		288C5F691E6D9E4A00F07CB4 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		288C5F6A1E6D9E4A00F07CB4 /* OpenSans-CondBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A68AE7BF1C626470002E862D /* OpenSans-CondBold.ttf */; };
 		288C5F6B1E6D9E4A00F07CB4 /* Speakers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6C5F21A1BF4E9C60093AD65 /* Speakers.storyboard */; };
 		288C5F6C1E6D9E4A00F07CB4 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A6C5F2351BF4E9C60093AD65 /* LICENSE */; };
 		288C5F6D1E6D9E4A00F07CB4 /* ImageStorage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 289301541E3770FD00BB933B /* ImageStorage.xcassets */; };
 		288C5F6E1E6D9E4A00F07CB4 /* LESelectedActionSheetController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F580ED6B1D0FDE2B00F289F8 /* LESelectedActionSheetController.xib */; };
 		288C5F701E6D9E4A00F07CB4 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6C5F2171BF4E9C60093AD65 /* Events.storyboard */; };
-		288C5F721E6D9E4A00F07CB4 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		288C5F731E6D9E4A00F07CB4 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A68AE7C01C626470002E862D /* OpenSans-Regular.ttf */; };
 		288C5F741E6D9E4A00F07CB4 /* DCEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C5F1FC1BF4E9C60093AD65 /* DCEventCell.xib */; };
 		288C5F751E6D9E4A00F07CB4 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A68AE7BE1C626470002E862D /* OpenSans-Bold.ttf */; };
@@ -161,6 +158,7 @@
 		288C5FB41E6D9E8C00F07CB4 /* event_detail_style.css in Resources */ = {isa = PBXBuildFile; fileRef = 288C5FAD1E6D9E8C00F07CB4 /* event_detail_style.css */; };
 		288C5FB51E6D9E8C00F07CB4 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 288C5FAE1E6D9E8C00F07CB4 /* style.css */; };
 		288C5FBE1E6D9FBA00F07CB4 /* DCMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 288C5FBB1E6D9FBA00F07CB4 /* DCMenuItem.m */; };
+		825571B422C283D600598CDD /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 825571B322C283D600598CDD /* libz.1.dylib */; };
 		FC34ED781EBB208000EE9C22 /* DCEvent+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FC34ED751EBB208000EE9C22 /* DCEvent+CoreDataClass.m */; };
 		FC34ED7B1EBB208000EE9C22 /* DCEvent+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FC34ED771EBB208000EE9C22 /* DCEvent+CoreDataProperties.m */; };
 		FC4903821EE9884100E681BA /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4903811EE9884100E681BA /* libsqlite3.0.tbd */; };
@@ -214,6 +212,7 @@
 		74356D5119BEE1D90055F13D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		74A470E719B5EA3C00B01BC5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		74E67C7619B6FEF500DF9D71 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		825571B322C283D600598CDD /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		842B5E621AC579C2009614A5 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		842B5E641AC579D0009614A5 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		849EFDDA19A4ACB800C43E05 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -532,10 +531,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				825571B422C283D600598CDD /* libz.1.dylib in Frameworks */,
 				FC4903841EE9885500E681BA /* libsqlite3.tbd in Frameworks */,
 				FC4903821EE9884100E681BA /* libsqlite3.0.tbd in Frameworks */,
 				288C5F541E6D9E4A00F07CB4 /* AdSupport.framework in Frameworks */,
-				288C5F551E6D9E4A00F07CB4 /* libz.dylib in Frameworks */,
 				288C5F561E6D9E4A00F07CB4 /* SystemConfiguration.framework in Frameworks */,
 				288C5F571E6D9E4A00F07CB4 /* CoreLocation.framework in Frameworks */,
 				288C5F581E6D9E4A00F07CB4 /* MapKit.framework in Frameworks */,
@@ -632,6 +631,7 @@
 		5DC8C413198656DA00BF5816 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				825571B322C283D600598CDD /* libz.1.dylib */,
 				FC4903831EE9885500E681BA /* libsqlite3.tbd */,
 				FC4903811EE9884100E681BA /* libsqlite3.0.tbd */,
 				84D654641ACC5C1D0099B461 /* QuartzCore.framework */,
@@ -1632,7 +1632,7 @@
 			attributes = {
 				CLASSPREFIX = DC;
 				LastUpgradeCheck = 1020;
-				ORGANIZATIONNAME = "Lemberg Solution";
+				ORGANIZATIONNAME = "GNOME Foundation";
 				TargetAttributes = {
 					288C5ED71E6D9E4A00F07CB4 = {
 						SystemCapabilities = {
@@ -1671,7 +1671,6 @@
 				288C5F651E6D9E4A00F07CB4 /* TwitterKitResources.bundle in Resources */,
 				288C5F661E6D9E4A00F07CB4 /* Montserrat-Regular.otf in Resources */,
 				288C5F671E6D9E4A00F07CB4 /* Main.storyboard in Resources */,
-				288C5F691E6D9E4A00F07CB4 /* (null) in Resources */,
 				288C5F6A1E6D9E4A00F07CB4 /* OpenSans-CondBold.ttf in Resources */,
 				288C5F6B1E6D9E4A00F07CB4 /* Speakers.storyboard in Resources */,
 				288C5F6C1E6D9E4A00F07CB4 /* LICENSE in Resources */,
@@ -1683,7 +1682,6 @@
 				288C5F701E6D9E4A00F07CB4 /* Events.storyboard in Resources */,
 				287E7BC91E8535A200E03F56 /* Merriweather-Regular.ttf in Resources */,
 				288C5FB51E6D9E8C00F07CB4 /* style.css in Resources */,
-				288C5F721E6D9E4A00F07CB4 /* (null) in Resources */,
 				288C5F731E6D9E4A00F07CB4 /* OpenSans-Regular.ttf in Resources */,
 				FC8303BA1F25E47500BEB323 /* GlassAntiqua-Regular.ttf in Resources */,
 				288C5F741E6D9E4A00F07CB4 /* DCEventCell.xib in Resources */,

@@ -551,7 +551,7 @@ void dzn_original_implementation(id self, SEL _cmd) {
     Class baseClass = dzn_baseClassToSwizzleForTarget(self);
     NSString *key = dzn_implementationKey(baseClass, _cmd);
 
-    NSDictionary *swizzleInfo = [_impLookupTable objectForKey:key];
+    NSDictionary *swizzleInfo = _impLookupTable[key];
     NSValue *impValue = [swizzleInfo valueForKey:DZNSwizzleInfoPointerKey];
 
     IMP impPointer = [impValue pointerValue];
@@ -602,8 +602,8 @@ Class dzn_baseClassToSwizzleForTarget(id target) {
 
     // We make sure that setImplementation is called once per class kind, UITableView or UICollectionView.
     for (NSDictionary *info in [_impLookupTable allValues]) {
-        Class class = [info objectForKey:DZNSwizzleInfoOwnerKey];
-        NSString *selectorName = [info objectForKey:DZNSwizzleInfoSelectorKey];
+        Class class = info[DZNSwizzleInfoOwnerKey];
+        NSString *selectorName = info[DZNSwizzleInfoSelectorKey];
 
         if ([selectorName isEqualToString:NSStringFromSelector(selector)]) {
             if ([self isKindOfClass:class]) {
@@ -614,7 +614,7 @@ Class dzn_baseClassToSwizzleForTarget(id target) {
 
     Class baseClass = dzn_baseClassToSwizzleForTarget(self);
     NSString *key = dzn_implementationKey(baseClass, selector);
-    NSValue *impValue = [[_impLookupTable objectForKey:key] valueForKey:DZNSwizzleInfoPointerKey];
+    NSValue *impValue = [_impLookupTable[key] valueForKey:DZNSwizzleInfoPointerKey];
 
     // If the implementation for this class already exist, skip!!
     if (impValue || !key || !baseClass) {
@@ -630,7 +630,7 @@ Class dzn_baseClassToSwizzleForTarget(id target) {
             DZNSwizzleInfoSelectorKey: NSStringFromSelector(selector),
             DZNSwizzleInfoPointerKey: [NSValue valueWithPointer:dzn_newImplementation]};
 
-    [_impLookupTable setObject:swizzledInfo forKey:key];
+    _impLookupTable[key] = swizzledInfo;
 }
 
 

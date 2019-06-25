@@ -29,7 +29,7 @@ NSString *kDCTrackSelectedInFilter = @"trackSelectedInFilter";
             // sharedProxy]
             // createObjectOfClass:[DCTrack
             // class]];
-            track.selectedInFilter = [NSNumber numberWithBool:YES];
+            track.selectedInFilter = @YES;
         }
 
         if ([dictionary[kDCParseObjectDeleted] intValue] == 1)  // remove
@@ -39,8 +39,7 @@ NSString *kDCTrackSelectedInFilter = @"trackSelectedInFilter";
         {
             track.trackId = dictionary[kDCTrackIdKey];
             track.name = dictionary[kDCTrackNameKey];
-            track.order = [NSNumber
-                    numberWithFloat:[dictionary[kDCParseObjectOrderKey] floatValue]];
+            track.order = @([dictionary[kDCParseObjectOrderKey] floatValue]);
         }
     }
 }

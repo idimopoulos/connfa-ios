@@ -26,7 +26,7 @@
 }
 
 - (NSNumber *)numberFromString:(NSString *)string {
-    return [NSNumber numberWithInteger:[string integerValue]];
+    return @([string integerValue]);
 }
 
 - (BOOL)isTimeValid {

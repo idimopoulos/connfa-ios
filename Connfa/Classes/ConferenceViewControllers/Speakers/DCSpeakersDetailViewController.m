@@ -144,8 +144,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
                             systemLayoutSizeFittingSize:UILayoutFittingCompressedSize]
                             .height;
 
-            [self.cellsHeight setObject:[NSNumber numberWithFloat:height]
-                                 forKey:headerCellId];
+            self.cellsHeight[headerCellId] = [NSNumber numberWithFloat:height];
 
             // this hardcoded value sets min cell height to avoid background image
             // scaling. It depends on image size
@@ -171,10 +170,9 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
         {
             if (self.speaker.characteristic.length) {
                 if (self.descriptionCellIndexPath &&
-                        [self.cellsHeight objectForKey:self.descriptionCellIndexPath]) {
+                        self.cellsHeight[self.descriptionCellIndexPath]) {
                     // saved accurate value, estimated after data loading to WebView
-                    return [[self.cellsHeight
-                            objectForKey:self.descriptionCellIndexPath] floatValue];
+                    return [self.cellsHeight[self.descriptionCellIndexPath] floatValue];
                 } else {
                     // inaccurate value, used to set cell height before WebView has loaded
                     // data, will be replaced after load
@@ -287,7 +285,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView == self.speakerTable) {
         float showNavBarPoint =
-                [[self.cellsHeight objectForKey:headerCellId] floatValue];
+                [self.cellsHeight[headerCellId] floatValue];
         float offset = scrollView.contentOffset.y;
 
         if (offset < 0) {
@@ -319,11 +317,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 #pragma mark - UIWebViewDelegate
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    if (![self.cellsHeight objectForKey:self.descriptionCellIndexPath]) {
+    if (!self.cellsHeight[self.descriptionCellIndexPath]) {
         float height = [[webView stringByEvaluatingJavaScriptFromString:
                 @"document.body.scrollHeight;"] floatValue];
-        [self.cellsHeight setObject:[NSNumber numberWithFloat:height]
-                             forKey:self.descriptionCellIndexPath];
+        self.cellsHeight[self.descriptionCellIndexPath] = @(height);
 
         [self.speakerTable beginUpdates];
         [self.speakerTable

@@ -205,8 +205,8 @@ static NSString *const DCCoreDataModelFileName = @"main";
     BOOL result = NO;
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *majorVersion =
-            [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-    NSString *minorVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
+            infoDictionary[@"CFBundleShortVersionString"];
+    NSString *minorVersion = infoDictionary[@"CFBundleVersion"];
 
     if ([majorVersion isEqualToString:[NSUserDefaults bundleVersionMajor]] &&
             [minorVersion isEqualToString:[NSUserDefaults bundleVersionMinor]]) {

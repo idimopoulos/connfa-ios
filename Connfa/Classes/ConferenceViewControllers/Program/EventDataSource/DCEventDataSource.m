@@ -65,9 +65,7 @@ const NSString *kDCTimeslotEventKEY = @"timeslot_event_key";
             }
         }
         if (eventsForClass.count) {
-            timeslotDict = [[NSDictionary alloc]
-                    initWithObjects:@[timerange, eventsForClass]
-                            forKeys:@[kDCTimeslotKEY, kDCTimeslotEventKEY]];
+            timeslotDict = @{kDCTimeslotKEY: timerange, kDCTimeslotEventKEY: eventsForClass};
             [uniqueTimeSlotsSource addObject:timeslotDict];
         }
     }

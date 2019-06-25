@@ -84,7 +84,7 @@
 
 - (NSPredicate *)favoritesPredicate {
     return [NSPredicate
-            predicateWithFormat:@"favorite=%@", [NSNumber numberWithBool:YES]];
+            predicateWithFormat:@"favorite=%@", @YES];
 }
 
 - (void)dealloc {

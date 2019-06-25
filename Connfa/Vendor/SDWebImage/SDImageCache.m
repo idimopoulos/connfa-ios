@@ -423,7 +423,7 @@ BOOL ImageDataHasPNGPreffix(NSData *data) {
             // Store a reference to this file and account for its total size.
             NSNumber *totalAllocatedSize = resourceValues[NSURLTotalFileAllocatedSizeKey];
             currentCacheSize += [totalAllocatedSize unsignedIntegerValue];
-            [cacheFiles setObject:resourceValues forKey:fileURL];
+            cacheFiles[fileURL] = resourceValues;
         }
 
         for (NSURL *fileURL in urlsToDelete) {

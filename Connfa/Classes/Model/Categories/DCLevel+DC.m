@@ -29,7 +29,7 @@ NSString *kDCLevelSelectedInFilterKey = @"levelSelectedInFilter";
             // sharedProxy]
             // createObjectOfClass:[DCLevel
             // class]];
-            level.selectedInFilter = [NSNumber numberWithBool:YES];
+            level.selectedInFilter = @YES;
         }
 
         if ([dictionary[kDCParseObjectDeleted] intValue] == 1)  // remove
@@ -39,8 +39,7 @@ NSString *kDCLevelSelectedInFilterKey = @"levelSelectedInFilter";
         {
             level.levelId = dictionary[kDCLevelIdKey];
             level.name = dictionary[kDCLevelNameKey];
-            level.order = [NSNumber
-                    numberWithFloat:[dictionary[kDCParseObjectOrderKey] floatValue]];
+            level.order = @([dictionary[kDCParseObjectOrderKey] floatValue]);
         }
     }
 }

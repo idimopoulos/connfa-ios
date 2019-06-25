@@ -34,7 +34,7 @@
 #import "DCCalendarManager.h"
 #import "DCAlertsManager.h"
 
-const NSString *INVALID_JSON_EXCEPTION = @"Invalid JSON";
+NSString *INVALID_JSON_EXCEPTION = @"Invalid JSON";
 
 #pragma mark - block declaration
 
@@ -62,7 +62,7 @@ typedef void (^UpdateDataFail)(NSString *reason);
 
 @implementation DCMainProxy
 
-@synthesize managedObjectModel = _managedObjectModel, workContext = _workContext, defaultPrivateContext = _defaultPrivateContext, persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize managedObjectModel = _managedObjectModel, workContext = _workContext, persistentStoreCoordinator = _persistentStoreCoordinator;
 
 #pragma mark - initialization
 
@@ -294,14 +294,14 @@ typedef void (^UpdateDataFail)(NSString *reason);
 #pragma mark - Operation with favorites
 
 - (void)addToFavoriteEvent:(DCEvent *)event {
-    event.favorite = [NSNumber numberWithBool:YES];
+    event.favorite = @YES;
     [[DCCoreDataStore defaultStore] saveWithCompletionBlock:nil];
 
     [self.calendarManager addEventWithItem:event interval:5];
 }
 
 - (void)removeFavoriteEventWithID:(DCEvent *)event {
-    event.favorite = [NSNumber numberWithBool:NO];
+    event.favorite = @NO;
     [[DCCoreDataStore defaultStore] saveWithCompletionBlock:nil];
 
     [self.calendarManager removeEventOfItem:event];

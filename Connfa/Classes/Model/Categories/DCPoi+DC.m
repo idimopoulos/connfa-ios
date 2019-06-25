@@ -39,8 +39,7 @@ static NSString *kDCPoiImageURLKey = @"poiImageURL";
             poi.descript = dictionary[kDCPoiDescription];
             poi.imageURL = dictionary[kDCPoiImageURLKey];
             poi.detailURL = dictionary[kDCPoiDetailURLKey];
-            poi.order = [NSNumber
-                    numberWithFloat:[dictionary[kDCParseObjectOrderKey] floatValue]];
+            poi.order = @([dictionary[kDCParseObjectOrderKey] floatValue]);
         }
     }
 }

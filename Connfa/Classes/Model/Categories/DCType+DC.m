@@ -34,8 +34,7 @@ const NSString *kDCTypeIconURLKey = @"typeIconURL";
         {
             type.typeID = dictionary[kDCTypeIdKey];
             type.name = dictionary[kDCTypeNameKey];
-            type.order = [NSNumber
-                    numberWithFloat:[dictionary[kDCParseObjectOrderKey] floatValue]];
+            type.order = @([dictionary[kDCParseObjectOrderKey] floatValue]);
             type.typeIcon = dictionary[kDCTypeIconURLKey];
         }
     }

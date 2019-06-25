@@ -152,8 +152,7 @@ static NSString *const SCHEDULES_URI = @"getSchedules?";
 - (void)chechUpdates {
     NSDictionary *headerParams = nil;
     if (![self isStringEmpty:[self timeStampValue]]) {
-        headerParams = [NSDictionary dictionaryWithObject:[self timeStampValue]
-                                                   forKey:@"If-Modified-Since"];
+        headerParams = @{@"If-Modified-Since": [self timeStampValue]};
     }
 
     [DCWebService
@@ -161,9 +160,9 @@ static NSString *const SCHEDULES_URI = @"getSchedules?";
                                                     withHTTPMethod:@"GET"
                                                  withHeaderOptions:headerParams]
                           onSuccess:^(NSHTTPURLResponse *response, id data) {
-                              if ([response.allHeaderFields objectForKey:@"Last-Modified"]) {
+                              if (response.allHeaderFields[@"Last-Modified"]) {
                                   self.preLastModified =
-                                          [response.allHeaderFields objectForKey:@"Last-Modified"];
+                                          response.allHeaderFields[@"Last-Modified"];
                               }
                               if (response.statusCode == 304)  // no changes
                               {
@@ -174,7 +173,7 @@ static NSString *const SCHEDULES_URI = @"getSchedules?";
                               NSError *err = nil;
                               NSDictionary *dictionary =
                                       [NSJSONSerialization JSONObjectWithData:data
-                                                                      options:kNilOptions
+                                                                      options:(NSJSONReadingOptions) kNilOptions
                                                                         error:&err];
                               dictionary = [dictionary dictionaryByReplacingNullsWithStrings];
                               if ([dictionary[IDS_FOR_UPDATE] isKindOfClass:[NSArray class]] || err) {
@@ -235,8 +234,7 @@ static NSString *const SCHEDULES_URI = @"getSchedules?";
     for (NSString *uri in uris) {
         NSDictionary *headerParams = nil;
         if (![self isStringEmpty:[self timeStampValue]]) {
-            headerParams = [NSDictionary dictionaryWithObject:[self timeStampValue]
-                                                       forKey:@"If-Modified-Since"];
+            headerParams = @{@"If-Modified-Since": [self timeStampValue]};
         }
         NSURLRequest *request = [DCWebService urlRequestForURI:uri
                                                 withHTTPMethod:@"GET"

@@ -109,14 +109,14 @@ sectionForSectionIndexTitle:(NSString *)title
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
     id <NSFetchedResultsSectionInfo> sectionInfo =
-            [[self.fetchedResultsController sections] objectAtIndex:section];
+            [self.fetchedResultsController sections][section];
     return [sectionInfo numberOfObjects];
 }
 
 - (NSString *)tableView:(UITableView *)tableView
 titleForHeaderInSection:(NSInteger)section {
     id <NSFetchedResultsSectionInfo> sectionInfo =
-            [[self.fetchedResultsController sections] objectAtIndex:section];
+            [self.fetchedResultsController sections][section];
     return [sectionInfo name];
 }
 

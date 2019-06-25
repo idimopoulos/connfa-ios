@@ -189,7 +189,7 @@
     [fetchRequest setEntity:entityDescription];
     [fetchRequest setReturnsObjectsAsFaults:NO];
     NSPredicate *predicate = [NSPredicate
-            predicateWithFormat:@"favorite=%@", [NSNumber numberWithBool:YES]];
+            predicateWithFormat:@"favorite=%@", @YES];
     [fetchRequest setPredicate:predicate];
 
     NSArray *result =
@@ -271,7 +271,7 @@
         }
 
 //    [DCSharedSchedule updateFromDictionary:dictionary inContext:self.workContext];
-        NSDictionary *scheduleDictionary = [((NSArray *) [dictionary objectForKey:@"schedules"]) firstObject];
+        NSDictionary *scheduleDictionary = [((NSArray *) dictionary[@"schedules"]) firstObject];
         if (!scheduleDictionary) {
             scheduleDictionary = dictionary;
         }
@@ -326,11 +326,11 @@
                                                     options:kNilOptions
                                                       error:&err];
             dictionary = [dictionary dictionaryByReplacingNullsWithStrings];
-            NSNumber *code = [dictionary objectForKey:@"code"];
+            NSNumber *code = dictionary[@"code"];
 
             DCSharedSchedule *sharedSchedule = [DCSharedSchedule createManagedObjectInContext:self.workContext];
             sharedSchedule.scheduleId = code;
-            sharedSchedule.isMySchedule = [NSNumber numberWithBool:true];
+            sharedSchedule.isMySchedule = @true;
             sharedSchedule.name = @"My Schedule";
             [[DCCoreDataStore defaultStore] saveWithCompletionBlock:nil];
 
@@ -345,7 +345,7 @@
 
 - (NSData *)createDataForScheduleRequest {
     NSArray *ids = [self getFavoritesIds];
-    NSDictionary *dataDictionary = [NSDictionary dictionaryWithObject:ids forKey:@"data"];
+    NSDictionary *dataDictionary = @{@"data": ids};
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dataDictionary options:NSJSONWritingPrettyPrinted error:nil];
     return jsonData;
 }
@@ -371,7 +371,7 @@
         [fetchRequest setEntity:entityDescription];
         [fetchRequest setReturnsObjectsAsFaults:NO];
         NSPredicate *predicate = [NSPredicate
-                predicateWithFormat:@"isMySchedule=%@", [NSNumber numberWithBool:NO]];
+                predicateWithFormat:@"isMySchedule=%@", @NO];
         [fetchRequest setPredicate:predicate];
 
         NSArray *result =

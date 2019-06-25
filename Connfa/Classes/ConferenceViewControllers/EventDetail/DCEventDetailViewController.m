@@ -263,9 +263,9 @@ static int descriptionSectionIndex = 3;
             [DCDescriptionTextCell cellHeightForText:_event.desctiptText];
 
     if (self.lastIndexPath &&
-            [self.cellsHeight objectForKey:self.lastIndexPath]) {
+            self.cellsHeight[self.lastIndexPath]) {
         descriptionCellHeight =
-                [[self.cellsHeight objectForKey:self.lastIndexPath] floatValue];
+                [self.cellsHeight[self.lastIndexPath] floatValue];
     }
     return descriptionCellHeight;
 }
@@ -383,7 +383,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
         } else {
             scheduleCell.separator.hidden = false;
         }
-        scheduleCell.scheduleName.text = ((DCSharedSchedule *) [schedules objectAtIndex:indexPath.row - 1]).name;
+        scheduleCell.scheduleName.text = ((DCSharedSchedule *) schedules[indexPath.row - 1]).name;
         scheduleCell.selectionStyle = UITableViewCellSelectionStyleNone;
         return scheduleCell;
 
@@ -438,11 +438,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 #pragma mark - UIWebView delegate
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    if (![self.cellsHeight objectForKey:self.lastIndexPath]) {
+    if (!self.cellsHeight[self.lastIndexPath]) {
         float height = [[webView stringByEvaluatingJavaScriptFromString:
                 @"document.body.scrollHeight;"] floatValue];
-        [self.cellsHeight setObject:[NSNumber numberWithFloat:height]
-                             forKey:self.lastIndexPath];
+        self.cellsHeight[self.lastIndexPath] = @(height);
 
         NSString *padding = @"document.body.style.margin='0';";
         [webView stringByEvaluatingJavaScriptFromString:padding];

@@ -112,7 +112,7 @@
 
 - (void)setAllItemsSelected:(BOOL)selected array:(NSArray *)array {
     [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [obj setValue:[NSNumber numberWithBool:selected]
+        [obj setValue:@(selected)
                forKey:@"selectedInFilter"];
     }];
 }
@@ -154,11 +154,11 @@
 
     switch (aCellType) {
         case FilterCellTypeLevel:
-            cellTitle = [(DCLevel *) [self.levelsToShow objectAtIndex:aRow] name];
+            cellTitle = [(DCLevel *) self.levelsToShow[aRow] name];
             break;
 
         case FilterCellTypeTrack:
-            cellTitle = [(DCTrack *) [self.tracksToShow objectAtIndex:aRow] name];
+            cellTitle = [(DCTrack *) self.tracksToShow[aRow] name];
             break;
 
         default:
@@ -173,11 +173,11 @@
 - (BOOL)getCellSelected:(FilterCellType)aCellType row:(NSInteger)aRow {
     switch (aCellType) {
         case FilterCellTypeLevel:
-            return [(DCLevel *) [self.levelsToShow objectAtIndex:aRow] selectedInFilter]
+            return [(DCLevel *) self.levelsToShow[aRow] selectedInFilter]
                     .boolValue;
 
         case FilterCellTypeTrack:
-            return [(DCTrack *) [self.tracksToShow objectAtIndex:aRow] selectedInFilter]
+            return [(DCTrack *) self.tracksToShow[aRow] selectedInFilter]
                     .boolValue;
 
         default:
@@ -190,11 +190,11 @@
 
     switch (aCellType) {
         case FilterCellTypeLevel:
-            cellId = [(DCLevel *) [self.levelsToShow objectAtIndex:aRow] levelId];
+            cellId = [(DCLevel *) self.levelsToShow[aRow] levelId];
             break;
 
         case FilterCellTypeTrack:
-            cellId = [(DCTrack *) [self.tracksToShow objectAtIndex:aRow] trackId];
+            cellId = [(DCTrack *) self.tracksToShow[aRow] trackId];
             break;
 
         default:
@@ -315,9 +315,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
                 [self setAllItemsSelected:NO array:self.levelsAll];
                 self.isLevelFilterCleared = NO;
             }
-            DCLevel *level = [self.levelsToShow objectAtIndex:indexPath.row];
+            DCLevel *level = self.levelsToShow[indexPath.row];
             level.selectedInFilter =
-                    [NSNumber numberWithBool:!level.selectedInFilter.boolValue];
+                    @(!level.selectedInFilter.boolValue);
         }
             break;
         case FilterCellTypeTrack: {
@@ -326,9 +326,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
                 self.isTrackFilterCleared = NO;
             }
 
-            DCLevel *track = [self.tracksToShow objectAtIndex:indexPath.row];
+            DCLevel *track = self.tracksToShow[indexPath.row];
             track.selectedInFilter =
-                    [NSNumber numberWithBool:!track.selectedInFilter.boolValue];
+                    @(!track.selectedInFilter.boolValue);
         }
             break;
     }

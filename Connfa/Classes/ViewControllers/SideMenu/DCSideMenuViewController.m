@@ -156,7 +156,7 @@
 }
 
 - (void)openMyScheduleFromUrl {
-    DCMenuItem *menuItem = [self.arrayOfCaptions objectAtIndex:5];
+    DCMenuItem *menuItem = self.arrayOfCaptions[5];
     [self showViewControllerAssociatedWithMenuItem:menuItem];
     self.scheduleId = nil;
 }
@@ -266,7 +266,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DCSideMenuCell *lastSelected =
             (DCSideMenuCell *) [tableView cellForRowAtIndexPath:self.activeCellPath];
 
-    DCMenuItem *lastSelectedItem = [self.arrayOfCaptions objectAtIndex:self.activeCellPath.row];
+    DCMenuItem *lastSelectedItem = self.arrayOfCaptions[self.activeCellPath.row];
 
     lastSelected.leftImageView.image =
             [UIImage imageNamedFromBundle:lastSelectedItem.iconName];
@@ -278,7 +278,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
             (DCSideMenuCell *) [tableView cellForRowAtIndexPath:indexPath];
 
 
-    DCMenuItem *newSelectedItem = [self.arrayOfCaptions objectAtIndex:indexPath.row];
+    DCMenuItem *newSelectedItem = self.arrayOfCaptions[indexPath.row];
 
     newSelected.leftImageView.image = [UIImage
             imageNamedFromBundle:newSelectedItem.selectedIconName];

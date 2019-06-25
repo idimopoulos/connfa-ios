@@ -101,9 +101,9 @@
         NSString *state;
 
         if (parts.count == 3) {
-            street = [parts objectAtIndex:0];
-            city = [parts objectAtIndex:1];
-            state = [parts objectAtIndex:2];
+            street = parts[0];
+            city = parts[1];
+            state = parts[2];
         } else {
             // Please, set the correct format of location!
             street = parts.firstObject;

@@ -426,8 +426,7 @@ containerWithCenterViewController:(id)centerViewController
 
 - (void)sendStateEventNotification:(MFSideMenuStateEvent)event {
     NSDictionary *userInfo =
-            [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:event]
-                                        forKey:@"eventType"];
+            @{@"eventType": @(event)};
     [[NSNotificationCenter defaultCenter]
             postNotificationName:MFSideMenuStateNotificationEvent
                           object:self

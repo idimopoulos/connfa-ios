@@ -69,8 +69,7 @@ DC_parseInfoCategoriesFromDictionary:(NSDictionary *)categoryDict
         category.infoId = categoryDict[kDCInfoCategoryId];
         category.name = categoryDict[kDCInfoCategoryTitle];
         category.html = categoryDict[kDCInfoCategoryHTML];
-        category.order = [NSNumber
-                numberWithFloat:[categoryDict[kDCParseObjectOrderKey] floatValue]];
+        category.order = @([categoryDict[kDCParseObjectOrderKey] floatValue]);
     }
     return category;
 }

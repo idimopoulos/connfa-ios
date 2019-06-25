@@ -39,8 +39,7 @@ NSString *kDCLocationAddressKey = @"address";
             location.longitude = dictionary[kDCLocationLongitudeKey];
             location.name = dictionary[kDCLocationPlaceNameKey];
             location.address = dictionary[kDCLocationAddressKey];
-            location.order = [NSNumber
-                    numberWithFloat:[dictionary[kDCParseObjectOrderKey] floatValue]];
+            location.order = @([dictionary[kDCParseObjectOrderKey] floatValue]);
         }
     }
 }

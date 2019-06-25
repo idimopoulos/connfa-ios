@@ -53,10 +53,10 @@ const NSString *kDCCodeKey = @"code";
         DCSharedSchedule *schedule = [self getScheduleFromDictionary:scheduleDictionary inContext:context];
         if (!schedule) {
             schedule = [DCSharedSchedule createManagedObjectInContext:context];
-            schedule.scheduleId = [scheduleDictionary objectForKey:kDCCodeKey];
+            schedule.scheduleId = scheduleDictionary[kDCCodeKey];
         }
         NSLog(@"%@", schedule.scheduleId);
-        schedule.isMySchedule = [NSNumber numberWithBool:NO];
+        schedule.isMySchedule = @NO;
         [schedule removeEvents:schedule.events];
         [schedule addEventsForIds:(NSArray *) scheduleDictionary[kDCEventsKey]];
     }

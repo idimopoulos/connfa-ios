@@ -50,8 +50,7 @@ const NSString *kDCSpeakerAvatarImageURLKey = @"avatarImageURL";
             speaker.jobTitle = dictionary[kDCSpeakerJobTitleKey];
             speaker.characteristic =
                     [dictionary[kDCSpeakerCharactKey] kv_decodeHTMLCharacterEntities];
-            speaker.order = [NSNumber
-                    numberWithFloat:[dictionary[kDCParseObjectOrderKey] floatValue]];
+            speaker.order = @([dictionary[kDCParseObjectOrderKey] floatValue]);
             speaker.sectionKey =
                     [DCSpeaker firstUpperLetter:dictionary[kDCSpeakerFirstNameKey]];
         }

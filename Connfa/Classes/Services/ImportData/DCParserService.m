@@ -89,7 +89,7 @@
     NSAssert(responseData, @"Repsonse from server is empty");
     NSAssert(key, @"Key is missed");
     @synchronized (self) {
-        [self.dataResults setObject:responseData forKey:key];
+        self.dataResults[key] = responseData;
     }
 }
 
