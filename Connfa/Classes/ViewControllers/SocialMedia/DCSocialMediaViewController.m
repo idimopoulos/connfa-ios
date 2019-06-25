@@ -3,11 +3,13 @@
 #import "UIConstants.h"
 #import "DCAppSettings.h"
 #import "UIScrollView+EmptyDataSet.h"
+#import <WebKit/WebKit.h>
 
-@interface DCSocialMediaViewController () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+@interface DCSocialMediaViewController () <WKUIDelegate>
 
 @property(nonatomic) __block DCMainProxyState previousState;
 @property(weak, nonatomic) IBOutlet UIView *placeholderView;
+@property WKWebView *webView;
 
 @end
 
@@ -22,29 +24,20 @@
     return self;
 }
 
+- (void)loadView {
+    WKWebViewConfiguration *config = [WKWebViewConfiguration new];
+    self.webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:config];
+    self.webView.UIDelegate = self;
+    self.view = self.webView;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNeedsStatusBarAppearanceUpdate];
     [self arrangeNavigationBar];
-
-    self.tableView.emptyDataSetSource = self;
-    self.tableView.emptyDataSetDelegate = self;
-    self.tableView.tableFooterView = [UIView new];
-
-    [[DCMainProxy sharedProxy]
-            setDataReadyCallback:^(DCMainProxyState mainProxyState) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    NSLog(@"Data ready callback %d", mainProxyState);
-                    if (!self.previousState) {
-                        [self reloadData];
-                        self.previousState = mainProxyState;
-                    }
-
-                    if (mainProxyState == DCMainProxyStateDataUpdated) {
-                        [self reloadData];
-                    }
-                });
-            }];
+    
+    NSString *HTML = @"<a class=\"twitter-timeline\" data-theme=\"light\" href=\"https://twitter.com/gnome?ref_src=twsrc^tfw\">Tweets by gnome</a> <script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>";
+    [self.webView loadHTMLString:HTML baseURL:[NSURL URLWithString:@"https://twitter.com"]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -69,44 +62,6 @@
 }
 
 #pragma mark - Private
-
-- (void)reloadData {
-    DCAppSettings *settings =
-            [[[DCMainProxy sharedProxy] getAllInstancesOfClass:[DCAppSettings class]
-                                                   inMainQueue:YES] lastObject];
-    NSString *searchQuery = settings.searchQuery;
-    if (searchQuery.length > 0) {
-        TWTRAPIClient *client = [[TWTRAPIClient alloc] init];
-        self.dataSource = [[TWTRSearchTimelineDataSource alloc] initWithSearchQuery:settings.searchQuery
-                                                                          APIClient:client];
-    }
-}
-
-#pragma mark - DZNEmptyDataSetSource
-
-- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
-    if ([DCMainProxy sharedProxy].checkReachable) {
-        return [UIImage imageNamed:@"ic_no_social_media"];
-    }
-    return nil;
-}
-
-- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
-    NSString *text = [DCMainProxy sharedProxy].checkReachable ? @"Currently there are no twits" : @"Internet connection is not available at this moment.\nPlease, try later.";
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:kFontOpenSansRegular size:21.0],
-            NSForegroundColorAttributeName: [UIColor colorWithRed:163.0 / 255.0 green:163.0 / 255.0 blue:163.0 / 255.0 alpha:1.0]};
-    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
-}
-
-#pragma mark - DZNEmptyDataSetDelegate
-
-- (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView {
-    DCAppSettings *settings =
-            [[[DCMainProxy sharedProxy] getAllInstancesOfClass:[DCAppSettings class]
-                                                   inMainQueue:YES] lastObject];
-    NSString *searchQuery = settings.searchQuery;
-    return searchQuery.length == 0 || [DCMainProxy sharedProxy].checkReachable == NO;
-}
 
 #pragma mark - Google Analytics
 

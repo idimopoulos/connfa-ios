@@ -1,7 +1,6 @@
 
 #import "DCBaseViewController.h"
-#import <TwitterKit/TwitterKit.h>
 
-@interface DCSocialMediaViewController : TWTRTimelineViewController
+@interface DCSocialMediaViewController : DCBaseViewController
 
 @end
