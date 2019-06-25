@@ -3,6 +3,6 @@
 
 @interface NSManagedObject (DC)
 
-+ (instancetype)createManagedObjectInContext:(NSManagedObjectContext*)context;
++ (instancetype)createManagedObjectInContext:(NSManagedObjectContext *)context;
 
 @end

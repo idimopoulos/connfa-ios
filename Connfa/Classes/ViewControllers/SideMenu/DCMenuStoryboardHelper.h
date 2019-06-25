@@ -6,6 +6,7 @@
 @interface DCMenuStoryboardHelper : NSObject
 
 + (BOOL)isProgramOrBof:(DCMenuSection)menu;
-+ (DCEventStrategy*)strategyForEventMenuType:(DCMenuSection)menu;
+
++ (DCEventStrategy *)strategyForEventMenuType:(DCMenuSection)menu;
 
 @end

@@ -10,41 +10,41 @@
 #import "MFSideMenuShadow.h"
 #import "DCBaseViewController.h"
 
-extern NSString* const MFSideMenuStateNotificationEvent;
+extern NSString *const MFSideMenuStateNotificationEvent;
 
 typedef enum {
-  MFSideMenuPanModeNone = 0,  // pan disabled
-  MFSideMenuPanModeCenterViewController =
-      1 << 0,  // enable panning on the centerViewController
-  MFSideMenuPanModeSideMenu = 1 << 1,  // enable panning on side menus
-  MFSideMenuPanModeDefault =
-      MFSideMenuPanModeCenterViewController | MFSideMenuPanModeSideMenu
+    MFSideMenuPanModeNone = 0,  // pan disabled
+    MFSideMenuPanModeCenterViewController =
+    1 << 0,  // enable panning on the centerViewController
+    MFSideMenuPanModeSideMenu = 1 << 1,  // enable panning on side menus
+    MFSideMenuPanModeDefault =
+    MFSideMenuPanModeCenterViewController | MFSideMenuPanModeSideMenu
 } MFSideMenuPanMode;
 
 typedef enum {
-  MFSideMenuStateClosed,        // the menu is closed
-  MFSideMenuStateLeftMenuOpen,  // the left-hand menu is open
-  MFSideMenuStateRightMenuOpen  // the right-hand menu is open
+    MFSideMenuStateClosed,        // the menu is closed
+    MFSideMenuStateLeftMenuOpen,  // the left-hand menu is open
+    MFSideMenuStateRightMenuOpen  // the right-hand menu is open
 } MFSideMenuState;
 
 typedef enum {
-  MFSideMenuStateEventMenuWillOpen,   // the menu is going to open
-  MFSideMenuStateEventMenuDidOpen,    // the menu finished opening
-  MFSideMenuStateEventMenuWillClose,  // the menu is going to close
-  MFSideMenuStateEventMenuDidClose    // the menu finished closing
+    MFSideMenuStateEventMenuWillOpen,   // the menu is going to open
+    MFSideMenuStateEventMenuDidOpen,    // the menu finished opening
+    MFSideMenuStateEventMenuWillClose,  // the menu is going to close
+    MFSideMenuStateEventMenuDidClose    // the menu finished closing
 } MFSideMenuStateEvent;
 
 @interface MFSideMenuContainerViewController
-    : UIViewController<UIGestureRecognizerDelegate>
+        : UIViewController <UIGestureRecognizerDelegate>
 
-+ (MFSideMenuContainerViewController*)
++ (MFSideMenuContainerViewController *)
 containerWithCenterViewController:(id)centerViewController
            leftMenuViewController:(id)leftMenuViewController
           rightMenuViewController:(id)rightMenuViewController;
 
 @property(nonatomic, strong) id centerViewController;
-@property(nonatomic, strong) UIViewController* leftMenuViewController;
-@property(nonatomic, strong) UIViewController* rightMenuViewController;
+@property(nonatomic, strong) UIViewController *leftMenuViewController;
+@property(nonatomic, strong) UIViewController *rightMenuViewController;
 
 @property(nonatomic, assign) MFSideMenuState menuState;
 @property(nonatomic, assign) MFSideMenuPanMode panMode;
@@ -60,7 +60,7 @@ containerWithCenterViewController:(id)centerViewController
 @property(nonatomic, assign) CGFloat rightMenuWidth;
 
 // shadow
-@property(nonatomic, strong) MFSideMenuShadow* shadow;
+@property(nonatomic, strong) MFSideMenuShadow *shadow;
 
 // center VC shadow
 @property(nonatomic) BOOL centerShadowEnabled;
@@ -68,18 +68,24 @@ containerWithCenterViewController:(id)centerViewController
 // menu slide-in animation
 @property(nonatomic, assign) BOOL menuSlideAnimationEnabled;
 @property(nonatomic, assign) CGFloat
-    menuSlideAnimationFactor;  // higher = less menu movement on animation
+        menuSlideAnimationFactor;  // higher = less menu movement on animation
 
 - (void)toggleLeftSideMenuCompletion:(void (^)(void))completion;
+
 - (void)toggleRightSideMenuCompletion:(void (^)(void))completion;
+
 - (void)setMenuState:(MFSideMenuState)menuState
           completion:(void (^)(void))completion;
+
 - (void)setMenuWidth:(CGFloat)menuWidth animated:(BOOL)animated;
+
 - (void)setLeftMenuWidth:(CGFloat)leftMenuWidth animated:(BOOL)animated;
+
 - (void)setRightMenuWidth:(CGFloat)rightMenuWidth animated:(BOOL)animated;
 
 - (void)clear;
+
 // can be used to attach a pan gesture recognizer to a custom view
-- (UIPanGestureRecognizer*)panGestureRecognizer;
+- (UIPanGestureRecognizer *)panGestureRecognizer;
 
 @end

@@ -2,8 +2,8 @@
 #import "DCBaseViewController.h"
 
 @interface DCSpeakersViewController
-    : DCBaseViewController<UITableViewDelegate, UITableViewDataSource>
+        : DCBaseViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property(nonatomic, strong) NSArray* speakers;
+@property(nonatomic, strong) NSArray *speakers;
 
 @end

@@ -4,17 +4,17 @@
 @implementation DCProgramHeaderCellView
 
 - (id)initWithFrame:(CGRect)frame {
-  self = [super initWithFrame:frame];
-  if (self) {
-    // Initialization code
-  }
-  return self;
+    self = [super initWithFrame:frame];
+    if (self) {
+        // Initialization code
+    }
+    return self;
 }
 
 - (void)hideTimeSection:(BOOL)isHide {
-  self.startLabel.hidden = isHide;
-  self.endLabel.hidden = isHide;
-  self.dateLabel.hidden = isHide;
+    self.startLabel.hidden = isHide;
+    self.endLabel.hidden = isHide;
+    self.dateLabel.hidden = isHide;
 }
 
 /*

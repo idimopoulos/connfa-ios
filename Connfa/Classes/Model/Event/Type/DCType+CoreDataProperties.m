@@ -11,7 +11,7 @@
 @implementation DCType (CoreDataProperties)
 
 + (NSFetchRequest<DCType *> *)fetchRequest {
-	return [[NSFetchRequest alloc] initWithEntityName:@"DCType"];
+    return [[NSFetchRequest alloc] initWithEntityName:@"DCType"];
 }
 
 @dynamic name;

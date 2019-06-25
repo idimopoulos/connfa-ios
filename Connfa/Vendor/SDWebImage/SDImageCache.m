@@ -31,10 +31,10 @@ BOOL ImageDataHasPNGPreffix(NSData *data) {
 
 @interface SDImageCache ()
 
-@property (strong, nonatomic) NSCache *memCache;
-@property (strong, nonatomic) NSString *diskCachePath;
-@property (strong, nonatomic) NSMutableArray *customPaths;
-@property (SDDispatchQueueSetterSementics, nonatomic) dispatch_queue_t ioQueue;
+@property(strong, nonatomic) NSCache *memCache;
+@property(strong, nonatomic) NSString *diskCachePath;
+@property(strong, nonatomic) NSMutableArray *customPaths;
+@property(SDDispatchQueueSetterSementics, nonatomic) dispatch_queue_t ioQueue;
 
 @end
 
@@ -133,7 +133,7 @@ BOOL ImageDataHasPNGPreffix(NSData *data) {
         str = "";
     }
     unsigned char r[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(str, (CC_LONG)strlen(str), r);
+    CC_MD5(str, (CC_LONG) strlen(str), r);
     NSString *filename = [NSString stringWithFormat:@"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
                                                     r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7], r[8], r[9], r[10], r[11], r[12], r[13], r[14], r[15]];
 
@@ -171,9 +171,8 @@ BOOL ImageDataHasPNGPreffix(NSData *data) {
 
                 if (imageIsPng) {
                     data = UIImagePNGRepresentation(image);
-                }
-                else {
-                    data = UIImageJPEGRepresentation(image, (CGFloat)1.0);
+                } else {
+                    data = UIImageJPEGRepresentation(image, (CGFloat) 1.0);
                 }
 #else
                 data = [NSBitmapImageRep representationOfImageRepsInArray:image.representations usingType: NSJPEGFileType properties:nil];
@@ -201,11 +200,11 @@ BOOL ImageDataHasPNGPreffix(NSData *data) {
 
 - (BOOL)diskImageExistsWithKey:(NSString *)key {
     BOOL exists = NO;
-    
+
     // this is an exception to access the filemanager on another queue than ioQueue, but we are using the shared instance
     // from apple docs on NSFileManager: The methods of the shared NSFileManager object can be called from multiple threads safely.
     exists = [[NSFileManager defaultManager] fileExistsAtPath:[self defaultCachePathForKey:key]];
-    
+
     return exists;
 }
 
@@ -266,8 +265,7 @@ BOOL ImageDataHasPNGPreffix(NSData *data) {
         image = [self scaledImageForKey:key image:image];
         image = [UIImage decodedImageWithImage:image];
         return image;
-    }
-    else {
+    } else {
         return nil;
     }
 }
@@ -328,27 +326,27 @@ BOOL ImageDataHasPNGPreffix(NSData *data) {
 }
 
 - (void)removeImageForKey:(NSString *)key fromDisk:(BOOL)fromDisk withCompletion:(SDWebImageNoParamsBlock)completion {
-    
+
     if (key == nil) {
         return;
     }
-    
+
     [self.memCache removeObjectForKey:key];
-    
+
     if (fromDisk) {
         dispatch_async(self.ioQueue, ^{
             [_fileManager removeItemAtPath:[self defaultCachePathForKey:key] error:nil];
-            
+
             if (completion) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     completion();
                 });
             }
         });
-    } else if (completion){
+    } else if (completion) {
         completion();
     }
-    
+
 }
 
 - (void)setMaxMemoryCost:(NSUInteger)maxMemoryCost {
@@ -367,8 +365,7 @@ BOOL ImageDataHasPNGPreffix(NSData *data) {
     [self clearDiskOnCompletion:nil];
 }
 
-- (void)clearDiskOnCompletion:(SDWebImageNoParamsBlock)completion
-{
+- (void)clearDiskOnCompletion:(SDWebImageNoParamsBlock)completion {
     dispatch_async(self.ioQueue, ^{
         [_fileManager removeItemAtPath:self.diskCachePath error:nil];
         [_fileManager createDirectoryAtPath:self.diskCachePath
@@ -428,7 +425,7 @@ BOOL ImageDataHasPNGPreffix(NSData *data) {
             currentCacheSize += [totalAllocatedSize unsignedIntegerValue];
             [cacheFiles setObject:resourceValues forKey:fileURL];
         }
-        
+
         for (NSURL *fileURL in urlsToDelete) {
             [_fileManager removeItemAtURL:fileURL error:nil];
         }

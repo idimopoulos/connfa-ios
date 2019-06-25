@@ -3,8 +3,9 @@
 
 @interface DCTime (DC)
 
-- (void)setTime:(NSString*)time;
+- (void)setTime:(NSString *)time;
 
-- (NSString*)stringValue;
+- (NSString *)stringValue;
+
 - (BOOL)isTimeValid;
 @end

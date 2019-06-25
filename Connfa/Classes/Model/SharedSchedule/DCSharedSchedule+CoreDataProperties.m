@@ -11,7 +11,7 @@
 @implementation DCSharedSchedule (CoreDataProperties)
 
 + (NSFetchRequest<DCSharedSchedule *> *)fetchRequest {
-	return [[NSFetchRequest alloc] initWithEntityName:@"DCSharedSchedule"];
+    return [[NSFetchRequest alloc] initWithEntityName:@"DCSharedSchedule"];
 }
 
 @dynamic name;

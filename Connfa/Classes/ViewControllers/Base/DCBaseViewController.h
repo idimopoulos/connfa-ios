@@ -7,8 +7,8 @@
 #import "GAIDictionaryBuilder.h"
 
 typedef enum {
-  EBaseViewControllerNatigatorBarStyleNormal,
-  EBaseViewControllerNatigatorBarStyleTransparrent
+    EBaseViewControllerNatigatorBarStyleNormal,
+    EBaseViewControllerNatigatorBarStyleTransparrent
 } EBaseViewControllerNatigatorBarStyle;
 
 @interface DCBaseViewController : UIViewController
@@ -16,6 +16,8 @@ typedef enum {
 @property(nonatomic) EBaseViewControllerNatigatorBarStyle navigatorBarStyle;
 
 - (void)arrangeNavigationBar;
-- (void)registerScreenLoadAtGA:(NSString*)message;
+
+- (void)registerScreenLoadAtGA:(NSString *)message;
+
 - (void)updateLabel:(UILabel *)label withFontName:(NSString *)fontName;
 @end

@@ -14,19 +14,19 @@
 
 @interface SDWebImageDownloaderOperation () <NSURLConnectionDataDelegate>
 
-@property (copy, nonatomic) SDWebImageDownloaderProgressBlock progressBlock;
-@property (copy, nonatomic) SDWebImageDownloaderCompletedBlock completedBlock;
-@property (copy, nonatomic) SDWebImageNoParamsBlock cancelBlock;
+@property(copy, nonatomic) SDWebImageDownloaderProgressBlock progressBlock;
+@property(copy, nonatomic) SDWebImageDownloaderCompletedBlock completedBlock;
+@property(copy, nonatomic) SDWebImageNoParamsBlock cancelBlock;
 
-@property (assign, nonatomic, getter = isExecuting) BOOL executing;
-@property (assign, nonatomic, getter = isFinished) BOOL finished;
-@property (assign, nonatomic) NSInteger expectedSize;
-@property (strong, nonatomic) NSMutableData *imageData;
-@property (strong, nonatomic) NSURLConnection *connection;
-@property (strong, atomic) NSThread *thread;
+@property(assign, nonatomic, getter = isExecuting) BOOL executing;
+@property(assign, nonatomic, getter = isFinished) BOOL finished;
+@property(assign, nonatomic) NSInteger expectedSize;
+@property(strong, nonatomic) NSMutableData *imageData;
+@property(strong, nonatomic) NSURLConnection *connection;
+@property(strong, atomic) NSThread *thread;
 
 #if TARGET_OS_IPHONE && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_4_0
-@property (assign, nonatomic) UIBackgroundTaskIdentifier backgroundTaskId;
+@property(assign, nonatomic) UIBackgroundTaskIdentifier backgroundTaskId;
 #endif
 
 @end
@@ -70,9 +70,9 @@
 
 #if TARGET_OS_IPHONE && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_4_0
         if ([self shouldContinueWhenAppEntersBackground]) {
-            __weak __typeof__ (self) wself = self;
+            __weak __typeof__(self) wself = self;
             self.backgroundTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-                __strong __typeof (wself) sself = wself;
+                __strong __typeof(wself) sself = wself;
 
                 if (sself) {
                     [sself cancel];
@@ -102,19 +102,17 @@
             // Note: we use a timeout to work around an issue with NSURLConnection cancel under iOS 5
             //       not waking up the runloop, leading to dead threads (see https://github.com/rs/SDWebImage/issues/466)
             CFRunLoopRunInMode(kCFRunLoopDefaultMode, 10, false);
-        }
-        else {
+        } else {
             CFRunLoopRun();
         }
 
         if (!self.isFinished) {
             [self.connection cancel];
-            [self connection:self.connection didFailWithError:[NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorTimedOut userInfo:@{NSURLErrorFailingURLErrorKey : self.request.URL}]];
+            [self connection:self.connection didFailWithError:[NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorTimedOut userInfo:@{NSURLErrorFailingURLErrorKey: self.request.URL}]];
         }
-    }
-    else {
+    } else {
         if (self.completedBlock) {
-            self.completedBlock(nil, nil, [NSError errorWithDomain:NSURLErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey : @"Connection can't be initialized"}], YES);
+            self.completedBlock(nil, nil, [NSError errorWithDomain:NSURLErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: @"Connection can't be initialized"}], YES);
         }
     }
 
@@ -130,8 +128,7 @@
     @synchronized (self) {
         if (self.thread) {
             [self performSelector:@selector(cancelInternalAndStop) onThread:self.thread withObject:nil waitUntilDone:NO];
-        }
-        else {
+        } else {
             [self cancelInternal];
         }
     }
@@ -195,22 +192,21 @@
 #pragma mark NSURLConnection (delegate)
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    if (![response respondsToSelector:@selector(statusCode)] || [((NSHTTPURLResponse *)response) statusCode] < 400) {
-        NSInteger expected = response.expectedContentLength > 0 ? (NSInteger)response.expectedContentLength : 0;
+    if (![response respondsToSelector:@selector(statusCode)] || [((NSHTTPURLResponse *) response) statusCode] < 400) {
+        NSInteger expected = response.expectedContentLength > 0 ? (NSInteger) response.expectedContentLength : 0;
         self.expectedSize = expected;
         if (self.progressBlock) {
             self.progressBlock(0, expected);
         }
 
         self.imageData = [[NSMutableData alloc] initWithCapacity:expected];
-    }
-    else {
+    } else {
         [self.connection cancel];
 
         [[NSNotificationCenter defaultCenter] postNotificationName:SDWebImageDownloadStopNotification object:nil];
 
         if (self.completedBlock) {
-            self.completedBlock(nil, nil, [NSError errorWithDomain:NSURLErrorDomain code:[((NSHTTPURLResponse *)response) statusCode] userInfo:nil], YES);
+            self.completedBlock(nil, nil, [NSError errorWithDomain:NSURLErrorDomain code:[((NSHTTPURLResponse *) response) statusCode] userInfo:nil], YES);
         }
         CFRunLoopStop(CFRunLoopGetCurrent());
         [self done];
@@ -229,7 +225,7 @@
 
         // Update the data source, we must pass ALL the data, not just the new bytes
         CGImageSourceRef imageSource = CGImageSourceCreateIncremental(NULL);
-        CGImageSourceUpdateData(imageSource, (__bridge CFDataRef)self.imageData, totalSize == self.expectedSize);
+        CGImageSourceUpdateData(imageSource, (__bridge CFDataRef) self.imageData, totalSize == self.expectedSize);
 
         if (width + height == 0) {
             CFDictionaryRef properties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, NULL);
@@ -264,12 +260,11 @@
                 CGContextRef bmContext = CGBitmapContextCreate(NULL, width, height, 8, width * 4, colorSpace, kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedFirst);
                 CGColorSpaceRelease(colorSpace);
                 if (bmContext) {
-                    CGContextDrawImage(bmContext, (CGRect){.origin.x = 0.0f, .origin.y = 0.0f, .size.width = width, .size.height = partialHeight}, partialImageRef);
+                    CGContextDrawImage(bmContext, (CGRect) {.origin.x = 0.0f, .origin.y = 0.0f, .size.width = width, .size.height = partialHeight}, partialImageRef);
                     CGImageRelease(partialImageRef);
                     partialImageRef = CGBitmapContextCreateImage(bmContext);
                     CGContextRelease(bmContext);
-                }
-                else {
+                } else {
                     CGImageRelease(partialImageRef);
                     partialImageRef = nil;
                 }
@@ -327,35 +322,32 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection {
     SDWebImageDownloaderCompletedBlock completionBlock = self.completedBlock;
-    @synchronized(self) {
+    @synchronized (self) {
         CFRunLoopStop(CFRunLoopGetCurrent());
         self.thread = nil;
         self.connection = nil;
         [[NSNotificationCenter defaultCenter] postNotificationName:SDWebImageDownloadStopNotification object:nil];
     }
-    
+
     if (![[NSURLCache sharedURLCache] cachedResponseForRequest:_request]) {
         responseFromCached = NO;
     }
-    
-    if (completionBlock)
-    {
+
+    if (completionBlock) {
         if (self.options & SDWebImageDownloaderIgnoreCachedResponse && responseFromCached) {
             completionBlock(nil, nil, nil, YES);
-        }
-        else {
+        } else {
             UIImage *image = [UIImage sd_imageWithData:self.imageData];
             NSString *key = [[SDWebImageManager sharedManager] cacheKeyForURL:self.request.URL];
             image = [self scaledImageForKey:key image:image];
-            
+
             // Do not force decoding animated GIFs
             if (!image.images) {
                 image = [UIImage decodedImageWithImage:image];
             }
             if (CGSizeEqualToSize(image.size, CGSizeZero)) {
-                completionBlock(nil, nil, [NSError errorWithDomain:@"SDWebImageErrorDomain" code:0 userInfo:@{NSLocalizedDescriptionKey : @"Downloaded image has 0 pixels"}], YES);
-            }
-            else {
+                completionBlock(nil, nil, [NSError errorWithDomain:@"SDWebImageErrorDomain" code:0 userInfo:@{NSLocalizedDescriptionKey: @"Downloaded image has 0 pixels"}], YES);
+            } else {
                 completionBlock(image, self.imageData, nil, YES);
             }
         }
@@ -380,8 +372,7 @@
     if (self.request.cachePolicy == NSURLRequestReloadIgnoringLocalCacheData) {
         // Prevents caching of responses
         return nil;
-    }
-    else {
+    } else {
         return cachedResponse;
     }
 }
@@ -394,7 +385,7 @@
     return self.shouldUseCredentialStorage;
 }
 
-- (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge{
+- (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
     if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
         NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
         [[challenge sender] useCredential:credential forAuthenticationChallenge:challenge];

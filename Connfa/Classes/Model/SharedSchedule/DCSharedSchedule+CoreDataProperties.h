@@ -15,18 +15,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<DCSharedSchedule *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSString *name;
-@property (nullable, nonatomic, copy) NSNumber *scheduleId;
-@property (nullable, nonatomic, copy) NSNumber *isMySchedule;
-@property (nullable, nonatomic, retain) NSSet<DCEvent *> *events;
+@property(nullable, nonatomic, copy) NSString *name;
+@property(nullable, nonatomic, copy) NSNumber *scheduleId;
+@property(nullable, nonatomic, copy) NSNumber *isMySchedule;
+@property(nullable, nonatomic, retain) NSSet<DCEvent *> *events;
 
 @end
 
 @interface DCSharedSchedule (CoreDataGeneratedAccessors)
 
 - (void)addEventsObject:(DCEvent *)value;
+
 - (void)removeEventsObject:(DCEvent *)value;
+
 - (void)addEvents:(NSSet<DCEvent *> *)values;
+
 - (void)removeEvents:(NSSet<DCEvent *> *)values;
 
 @end

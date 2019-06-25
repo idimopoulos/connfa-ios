@@ -12,10 +12,11 @@
 #endif
 
 #ifdef __OBJC__
-    #import <UIKit/UIKit.h>
-    #import <Foundation/Foundation.h>
-    #import "DCMainProxy.h"
-    #import "DCDateHelper.h"
-    #import "DCAppConfiguration.h"
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "DCMainProxy.h"
+#import "DCDateHelper.h"
+#import "DCAppConfiguration.h"
 
 #endif

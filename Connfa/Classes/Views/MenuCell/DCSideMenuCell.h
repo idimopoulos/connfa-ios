@@ -3,9 +3,9 @@
 
 @interface DCSideMenuCell : UITableViewCell
 
-@property(nonatomic, weak) IBOutlet UILabel* captionLabel;
-@property(nonatomic, weak) IBOutlet UIImageView* leftImageView;
+@property(nonatomic, weak) IBOutlet UILabel *captionLabel;
+@property(nonatomic, weak) IBOutlet UIImageView *leftImageView;
 
-@property(nonatomic, strong) IBOutlet UIView* selectedBackground;
+@property(nonatomic, strong) IBOutlet UIView *selectedBackground;
 
 @end

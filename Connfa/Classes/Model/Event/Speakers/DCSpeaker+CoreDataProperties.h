@@ -15,27 +15,30 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<DCSpeaker *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSString *avatarPath;
-@property (nullable, nonatomic, copy) NSString *characteristic;
-@property (nullable, nonatomic, copy) NSString *firstName;
-@property (nullable, nonatomic, copy) NSString *jobTitle;
-@property (nullable, nonatomic, copy) NSString *lastName;
-@property (nullable, nonatomic, copy) NSString *name;
-@property (nullable, nonatomic, copy) NSNumber *order;
-@property (nullable, nonatomic, copy) NSString *organizationName;
-@property (nullable, nonatomic, copy) NSString *sectionKey;
-@property (nullable, nonatomic, copy) NSNumber *speakerId;
-@property (nullable, nonatomic, copy) NSString *twitterName;
-@property (nullable, nonatomic, copy) NSString *webSite;
-@property (nullable, nonatomic, retain) NSSet<DCEvent *> *events;
+@property(nullable, nonatomic, copy) NSString *avatarPath;
+@property(nullable, nonatomic, copy) NSString *characteristic;
+@property(nullable, nonatomic, copy) NSString *firstName;
+@property(nullable, nonatomic, copy) NSString *jobTitle;
+@property(nullable, nonatomic, copy) NSString *lastName;
+@property(nullable, nonatomic, copy) NSString *name;
+@property(nullable, nonatomic, copy) NSNumber *order;
+@property(nullable, nonatomic, copy) NSString *organizationName;
+@property(nullable, nonatomic, copy) NSString *sectionKey;
+@property(nullable, nonatomic, copy) NSNumber *speakerId;
+@property(nullable, nonatomic, copy) NSString *twitterName;
+@property(nullable, nonatomic, copy) NSString *webSite;
+@property(nullable, nonatomic, retain) NSSet<DCEvent *> *events;
 
 @end
 
 @interface DCSpeaker (CoreDataGeneratedAccessors)
 
 - (void)addEventsObject:(DCEvent *)value;
+
 - (void)removeEventsObject:(DCEvent *)value;
+
 - (void)addEvents:(NSSet<DCEvent *> *)values;
+
 - (void)removeEvents:(NSSet<DCEvent *> *)values;
 
 @end

@@ -22,29 +22,29 @@
 #define FAB_UNAVAILABLE(x) __attribute__((unavailable(x)))
 
 #if __has_feature(nullability)
-    #define fab_nullable           nullable
-    #define fab_nonnull            nonnull
-    #define fab_null_unspecified   null_unspecified
-    #define fab_null_resettable    null_resettable
-    #define __fab_nullable         __nullable
-    #define __fab_nonnull          __nonnull
-    #define __fab_null_unspecified __null_unspecified
+#define fab_nullable           nullable
+#define fab_nonnull            nonnull
+#define fab_null_unspecified   null_unspecified
+#define fab_null_resettable    null_resettable
+#define __fab_nullable         __nullable
+#define __fab_nonnull          __nonnull
+#define __fab_null_unspecified __null_unspecified
 #else
-    #define fab_nullable
-    #define fab_nonnull
-    #define fab_null_unspecified
-    #define fab_null_resettable
-    #define __fab_nullable
-    #define __fab_nonnull
-    #define __fab_null_unspecified
+#define fab_nullable
+#define fab_nonnull
+#define fab_null_unspecified
+#define fab_null_resettable
+#define __fab_nullable
+#define __fab_nonnull
+#define __fab_null_unspecified
 #endif
 
 #ifndef NS_ASSUME_NONNULL_BEGIN
-    #define NS_ASSUME_NONNULL_BEGIN
+#define NS_ASSUME_NONNULL_BEGIN
 #endif
 
 #ifndef NS_ASSUME_NONNULL_END
-    #define NS_ASSUME_NONNULL_END
+#define NS_ASSUME_NONNULL_END
 #endif
 
 

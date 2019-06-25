@@ -24,11 +24,11 @@
  The tracker on which view tracking calls are be made, or `nil`, in which case
  [GAI defaultTracker] will be used.
  */
-@property(nonatomic, assign) id<GAITracker> tracker;
+@property(nonatomic, assign) id <GAITracker> tracker;
 /*!
  The screen name, for purposes of Google Analytics tracking. If this is `nil`,
  no tracking calls will be made.
  */
-@property(nonatomic, copy)   NSString *screenName;
+@property(nonatomic, copy) NSString *screenName;
 
 @end

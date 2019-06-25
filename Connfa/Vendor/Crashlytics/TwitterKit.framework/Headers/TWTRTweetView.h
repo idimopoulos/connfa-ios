@@ -15,32 +15,32 @@ NS_ASSUME_NONNULL_BEGIN
  *  The style for Tweet views.
  */
 typedef NS_ENUM(NSUInteger, TWTRTweetViewStyle) {
-    
+
     /**
      *  A full-size Tweet view. Displays images if present.
      */
-    TWTRTweetViewStyleRegular,
-    
+            TWTRTweetViewStyleRegular,
+
     /**
      *  A small Tweet view, primarily designed to be used in table views.
      */
-    TWTRTweetViewStyleCompact
+            TWTRTweetViewStyleCompact
 };
 
 /**
  *  A default combination of colors for Tweet views.
  */
 typedef NS_ENUM(NSUInteger, TWTRTweetViewTheme) {
-    
+
     /**
      *  Official light theme.
      */
-    TWTRTweetViewThemeLight,
-    
+            TWTRTweetViewThemeLight,
+
     /**
      *  Official dark theme.
      */
-    TWTRTweetViewThemeDark,
+            TWTRTweetViewThemeDark,
 };
 
 /**
@@ -98,23 +98,23 @@ typedef NS_ENUM(NSUInteger, TWTRTweetViewTheme) {
 /**
  *  Background color of the Tweet view and all text labels (fullname, username, Tweet text, timestamp).
  */
-@property (nonatomic) UIColor *backgroundColor UI_APPEARANCE_SELECTOR;
+@property(nonatomic) UIColor *backgroundColor UI_APPEARANCE_SELECTOR;
 
 /**
  *  Color of Tweet text and full name.
  */
-@property (nonatomic) UIColor *primaryTextColor UI_APPEARANCE_SELECTOR;
+@property(nonatomic) UIColor *primaryTextColor UI_APPEARANCE_SELECTOR;
 
 /**
  *  Color of links in Tweet text.
  */
-@property (nonatomic) UIColor *linkTextColor UI_APPEARANCE_SELECTOR;
+@property(nonatomic) UIColor *linkTextColor UI_APPEARANCE_SELECTOR;
 
 /**
  *  Set whether the border should be shown.
  *  Defaults to YES.
  */
-@property (nonatomic) BOOL showBorder UI_APPEARANCE_SELECTOR;
+@property(nonatomic) BOOL showBorder UI_APPEARANCE_SELECTOR;
 
 /**
  *  Set whether the action buttons (Favorite, Share) should be shown. When toggled,
@@ -123,30 +123,30 @@ typedef NS_ENUM(NSUInteger, TWTRTweetViewTheme) {
  *
  *  Defaults to NO.
  */
-@property (nonatomic) BOOL showActionButtons;
+@property(nonatomic) BOOL showActionButtons;
 
 /**
  *  Setting the theme of the Tweet view will change the color properties accordingly.
  *
  *  Set to `TWTRTweetViewThemeLight` by default.
  */
-@property (nonatomic) TWTRTweetViewTheme theme;
+@property(nonatomic) TWTRTweetViewTheme theme;
 
 /**
  *  The style of the Tweet. i.e. `TWTRTweetViewStyleRegular` or `TWTRTweetViewStyleCompact`.
  */
-@property (nonatomic, readonly) TWTRTweetViewStyle style;
+@property(nonatomic, readonly) TWTRTweetViewStyle style;
 
 /**
  *  Optional delegate to receive notifications when certain actions happen
  */
-@property (nonatomic, weak) IBOutlet id<TWTRTweetViewDelegate> delegate;
+@property(nonatomic, weak) IBOutlet id <TWTRTweetViewDelegate> delegate;
 
 /**
  *  Optional property to set a UIViewController from which to present various new UI
  *  e.g. when presenting a Share sheet, presenting a login view controller for actions, etc
  */
-@property (nonatomic, weak) UIViewController *presenterViewController;
+@property(nonatomic, weak) UIViewController *presenterViewController;
 
 /**
  *  Convenience initializer to configure a compact style Tweet view.

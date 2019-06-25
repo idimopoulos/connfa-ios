@@ -16,7 +16,7 @@ inline UIImage *SDScaledImageForKey(NSString *key, UIImage *image) {
     if (!image) {
         return nil;
     }
-    
+
     if ([image.images count] > 0) {
         NSMutableArray *scaledImages = [NSMutableArray array];
 
@@ -25,8 +25,7 @@ inline UIImage *SDScaledImageForKey(NSString *key, UIImage *image) {
         }
 
         return [UIImage animatedImageWithImages:scaledImages duration:image.duration];
-    }
-    else {
+    } else {
         if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
             CGFloat scale = 1.0;
             if (key.length >= 8) {

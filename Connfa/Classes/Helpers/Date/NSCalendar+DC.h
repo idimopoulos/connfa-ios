@@ -3,6 +3,6 @@
 
 @interface NSCalendar (DC)
 
-+ (NSCalendar*)currentGregorianCalendar;
++ (NSCalendar *)currentGregorianCalendar;
 
 @end

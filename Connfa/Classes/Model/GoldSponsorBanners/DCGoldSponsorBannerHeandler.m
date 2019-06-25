@@ -12,35 +12,35 @@
 #import "GAITracker.h"
 #import "GAIDictionaryBuilder.h"
 
-static NSString* goldenSponsorKey = @"GoldSponsorHeaders";
+static NSString *goldenSponsorKey = @"GoldSponsorHeaders";
 
-@interface DCGoldSponsorBannerHeandler()
-@property (copy, nonatomic) NSString *sponsorBannerName;
+@interface DCGoldSponsorBannerHeandler ()
+@property(copy, nonatomic) NSString *sponsorBannerName;
 @end
 
 @implementation DCGoldSponsorBannerHeandler
 
 
 + (id)sharedManager {
-  static DCGoldSponsorBannerHeandler *sharedMyManager = nil;
-  static dispatch_once_t onceToken;
-  dispatch_once(&onceToken, ^{
-    sharedMyManager = [[self alloc] init];
-  });
-  return sharedMyManager;
+    static DCGoldSponsorBannerHeandler *sharedMyManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedMyManager = [[self alloc] init];
+    });
+    return sharedMyManager;
 }
 
 - (void)makeRandomGoldenSponsor {
     NSString *plistFile = [[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"];
     NSDictionary *plistFileDictionary = [NSDictionary dictionaryWithContentsOfFile:plistFile];
     NSArray *headerNames = [plistFileDictionary objectForKey:goldenSponsorKey];
-    int randomIndex = arc4random_uniform((int)headerNames.count);
+    int randomIndex = arc4random_uniform((int) headerNames.count);
     NSString *headerName = [headerNames objectAtIndex:randomIndex];
     self.sponsorBannerName = headerName;
 }
 
 - (NSString *)getSponsorBannerName {
-  return self.sponsorBannerName;
+    return self.sponsorBannerName;
 }
 
 @end

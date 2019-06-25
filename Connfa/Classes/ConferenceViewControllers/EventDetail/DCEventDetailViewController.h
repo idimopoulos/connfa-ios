@@ -5,17 +5,18 @@
 
 
 typedef void (^CloseCallback)();
-@class  DCProgram, DCBof;
+
+@class DCProgram, DCBof;
 
 @interface DCEventDetailViewController
-    : DCBaseViewController<UITableViewDataSource,
-                           UITableViewDelegate,
-                           UIWebViewDelegate,
-                           UIScrollViewDelegate>
+        : DCBaseViewController <UITableViewDataSource,
+        UITableViewDelegate,
+        UIWebViewDelegate,
+        UIScrollViewDelegate>
 
-@property(nonatomic, strong) DCEvent* event;
+@property(nonatomic, strong) DCEvent *event;
 @property(nonatomic, strong) CloseCallback closeCallback;
 
-- (instancetype)initWithEvent:(DCEvent*)event;
+- (instancetype)initWithEvent:(DCEvent *)event;
 
 @end

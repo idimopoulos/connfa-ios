@@ -5,10 +5,10 @@
 @class DCEvent;
 
 
-@interface DCSideMenuViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface DCSideMenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property(nonatomic, weak) MFSideMenuContainerViewController* sideMenuContainer;
+@property(nonatomic, weak) MFSideMenuContainerViewController *sideMenuContainer;
 
-- (void)openEventFromFavorite:(DCEvent*)event;
+- (void)openEventFromFavorite:(DCEvent *)event;
 
 @end

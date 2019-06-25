@@ -11,12 +11,12 @@
 @implementation DCFontItem
 
 + (id)initWithTitleFont:(NSString *)titleFont andNameFont:(NSString *)nameFont andDescriptionFont:(NSString *)descriptionFont {
-  
-  DCFontItem* item = [[DCFontItem alloc] init];
-  item.titleFont = titleFont;
-  item.nameFont = nameFont;
-  item.descriptionFont = descriptionFont;
-  return item;
+
+    DCFontItem *item = [[DCFontItem alloc] init];
+    item.titleFont = titleFont;
+    item.nameFont = nameFont;
+    item.descriptionFont = descriptionFont;
+    return item;
 }
 
 

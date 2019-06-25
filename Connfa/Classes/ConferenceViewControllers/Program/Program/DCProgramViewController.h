@@ -12,16 +12,16 @@
  */
 
 @interface DCProgramViewController
-    : DCBaseViewController<UIPageViewControllerDataSource,
-                           UIPageViewControllerDelegate,
-                           UITextFieldDelegate,
-                           DCFilterViewControllerDelegate,
-                           ScheduleListDelegate>
+        : DCBaseViewController <UIPageViewControllerDataSource,
+        UIPageViewControllerDelegate,
+        UITextFieldDelegate,
+        DCFilterViewControllerDelegate,
+        ScheduleListDelegate>
 /**
  *  DCEventStrategy decides what contents should be dipslayed for  event types
  */
-@property(nonatomic, strong) DCEventStrategy* eventsStrategy;
+@property(nonatomic, strong) DCEventStrategy *eventsStrategy;
 
-- (void)openDetailScreenForEvent:(DCEvent*)event;
+- (void)openDetailScreenForEvent:(DCEvent *)event;
 
 @end

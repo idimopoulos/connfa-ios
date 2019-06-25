@@ -11,27 +11,29 @@
 @protocol LESelectedActionSheetControllerProtocol <NSObject>
 
 - (NSInteger)numberOfActions;
+
 - (NSString *)titleForActionAtIndex:(NSInteger)index;
+
 - (void)performActionAtIndex:(NSInteger)index;
 
 @end
 
 @interface LESelectedActionSheetController : UIViewController
 
-@property (nonatomic) NSUInteger selectedItemIndex;
-@property (nonatomic) BOOL requiredSelection;
+@property(nonatomic) NSUInteger selectedItemIndex;
+@property(nonatomic) BOOL requiredSelection;
 
-@property (nonatomic) CGFloat itemHeight;
-@property (nonatomic) CGFloat cornerRadius;
-@property (strong, nonatomic) UIColor *actionTitleColor;
-@property (strong, nonatomic) UIColor *actionTextColor;
-@property (strong, nonatomic) UIColor *selectedActionTitleColor;
-@property (strong, nonatomic) UIFont *actionTitleFont;
-@property (strong, nonatomic) NSString *dismissTitle;
-@property (strong, nonatomic) UIColor *dismissTitleColor;
-@property (strong, nonatomic) UIColor *dismissTintColor;
-@property (strong, nonatomic) UIFont *dismissTitleFont;
+@property(nonatomic) CGFloat itemHeight;
+@property(nonatomic) CGFloat cornerRadius;
+@property(strong, nonatomic) UIColor *actionTitleColor;
+@property(strong, nonatomic) UIColor *actionTextColor;
+@property(strong, nonatomic) UIColor *selectedActionTitleColor;
+@property(strong, nonatomic) UIFont *actionTitleFont;
+@property(strong, nonatomic) NSString *dismissTitle;
+@property(strong, nonatomic) UIColor *dismissTitleColor;
+@property(strong, nonatomic) UIColor *dismissTintColor;
+@property(strong, nonatomic) UIFont *dismissTitleFont;
 
-@property (weak, nonatomic) id <LESelectedActionSheetControllerProtocol> delegate;
+@property(weak, nonatomic) id <LESelectedActionSheetControllerProtocol> delegate;
 
 @end

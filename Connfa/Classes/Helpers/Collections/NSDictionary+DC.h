@@ -2,5 +2,5 @@
 #import <Foundation/Foundation.h>
 
 @interface NSDictionary (DC)
-- (NSDictionary*)dictionaryByReplacingNullsWithStrings;
+- (NSDictionary *)dictionaryByReplacingNullsWithStrings;
 @end

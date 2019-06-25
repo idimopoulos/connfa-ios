@@ -12,29 +12,28 @@
 #define CONTENT_HEIGHT 650
 
 @interface DCLoginViewController ()
-@property(nonatomic, weak) IBOutlet NSLayoutConstraint* contentHeightContraint;
-@property(nonatomic, weak)
-    IBOutlet NSLayoutConstraint* imageLockTopSpaceContraint;
-@property(nonatomic, weak) IBOutlet UIScrollView* scrollView;
+@property(nonatomic, weak) IBOutlet NSLayoutConstraint *contentHeightContraint;
+@property(nonatomic, weak) IBOutlet NSLayoutConstraint *imageLockTopSpaceContraint;
+@property(nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
-@property(nonatomic, weak) IBOutlet UITextField* loginTextField;
-@property(nonatomic, weak) IBOutlet UITextField* passwordTextField;
+@property(nonatomic, weak) IBOutlet UITextField *loginTextField;
+@property(nonatomic, weak) IBOutlet UITextField *passwordTextField;
 
-@property(nonatomic, weak) IBOutlet UIImageView* lockImageView;
+@property(nonatomic, weak) IBOutlet UIImageView *lockImageView;
 @end
 
 @implementation DCLoginViewController
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
+    [super viewDidLoad];
 
-  [self.scrollView setDelaysContentTouches:NO];
+    [self.scrollView setDelaysContentTouches:NO];
 
-  [self registerForKeyboardNotifications];
+    [self registerForKeyboardNotifications];
 
-  if (!isiPhone5)
-    self.imageLockTopSpaceContraint.constant = 40;
-  // Do any additional setup after loading the view, typically from a nib.
+    if (!isiPhone5)
+        self.imageLockTopSpaceContraint.constant = 40;
+    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)registerForKeyboardNotifications {
@@ -52,43 +51,43 @@
 }
 
 - (void)deregisterForKeyboardNotifications {
-  [[NSNotificationCenter defaultCenter]
-      removeObserver:self
-                name:UIKeyboardDidShowNotification
-              object:self];
-  [[NSNotificationCenter defaultCenter]
-      removeObserver:self
-                name:UIKeyboardWillHideNotification
-              object:self];
+    [[NSNotificationCenter defaultCenter]
+            removeObserver:self
+                      name:UIKeyboardDidShowNotification
+                    object:self];
+    [[NSNotificationCenter defaultCenter]
+            removeObserver:self
+                      name:UIKeyboardWillHideNotification
+                    object:self];
 }
 
 - (void)didReceiveMemoryWarning {
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-  [super viewWillAppear:animated];
+    [super viewWillAppear:animated];
 
-  // Login Screen is not actual for now!! But on this point we have a triger for
-  // initial loading screen;
+    // Login Screen is not actual for now!! But on this point we have a triger for
+    // initial loading screen;
 
-  if ([DCMainProxy sharedProxy].state == DCMainProxyStateInitDataLoading) {
-    [self performSegueWithIdentifier:@"toFirstLoading" sender:self];
-  } else {
-    [[DCAppFacade shared].mainNavigationController goToSideMenuContainer:nil];
-  }
-  return;
+    if ([DCMainProxy sharedProxy].state == DCMainProxyStateInitDataLoading) {
+        [self performSegueWithIdentifier:@"toFirstLoading" sender:self];
+    } else {
+        [[DCAppFacade shared].mainNavigationController goToSideMenuContainer:nil];
+    }
+    return;
 }
 
 - (IBAction)loginButtonCLicked:(id)sender {
-  [[DCAppFacade shared].mainNavigationController goToSideMenuContainer:sender];
+    [[DCAppFacade shared].mainNavigationController goToSideMenuContainer:sender];
 }
 
 #pragma mark text fields delegate
 
-- (BOOL)textFieldShouldClear:(UITextField*)textField {
-  return YES;
+- (BOOL)textFieldShouldClear:(UITextField *)textField {
+    return YES;
 }
 
 //- (void)keyboardWasShown:(NSNotification*)aNotification {
@@ -109,15 +108,15 @@
 //}
 
 - (void)hideLockImageView {
-  [UIView animateWithDuration:0.3
-      delay:0.0
-      options:UIViewAnimationOptionCurveEaseIn
-      animations:^{
-        self.lockImageView.alpha = 0.0;
+    [UIView animateWithDuration:0.3
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         self.lockImageView.alpha = 0.0;
 
-      }
-      completion:^(BOOL finished){
-      }];
+                     }
+                     completion:^(BOOL finished) {
+                     }];
 }
 
 // Called when the UIKeyboardWillHideNotification is sent
@@ -136,16 +135,16 @@
 //      }];
 //}
 
-- (BOOL)textFieldShouldReturn:(UITextField*)textField {
-  if (textField == self.loginTextField) {
-    [self.passwordTextField becomeFirstResponder];
-  }
-  if (textField == self.passwordTextField) {
-    [self.passwordTextField resignFirstResponder];
-    [self loginButtonCLicked:nil];
-  }
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.loginTextField) {
+        [self.passwordTextField becomeFirstResponder];
+    }
+    if (textField == self.passwordTextField) {
+        [self.passwordTextField resignFirstResponder];
+        [self loginButtonCLicked:nil];
+    }
 
-  return YES;
+    return YES;
 }
 
 @end

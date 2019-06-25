@@ -20,7 +20,7 @@
 
     CGImageRef imageRef = image.CGImage;
     CGSize imageSize = CGSizeMake(CGImageGetWidth(imageRef), CGImageGetHeight(imageRef));
-    CGRect imageRect = (CGRect){.origin = CGPointZero, .size = imageSize};
+    CGRect imageRect = (CGRect) {.origin = CGPointZero, .size = imageSize};
 
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGBitmapInfo bitmapInfo = CGImageGetBitmapInfo(imageRef);
@@ -39,7 +39,7 @@
         // Set noneSkipFirst.
         bitmapInfo |= kCGImageAlphaNoneSkipFirst;
     }
-            // Some PNGs tell us they have alpha but only 3 components. Odd.
+        // Some PNGs tell us they have alpha but only 3 components. Odd.
     else if (!anyNonAlpha && CGColorSpaceGetNumberOfComponents(colorSpace) == 3) {
         // Unset the old alpha info.
         bitmapInfo &= ~kCGBitmapAlphaInfoMask;

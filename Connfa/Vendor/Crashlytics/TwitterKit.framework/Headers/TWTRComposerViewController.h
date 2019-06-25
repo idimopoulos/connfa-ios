@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @class TWTRCardConfiguration;
 @class TWTRComposerTheme;
 @class TWTRTweet;
@@ -15,12 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TWTRComposerViewController : UIViewController
 
-@property (nonatomic, weak, nullable) id<TWTRComposerViewControllerDelegate> delegate;
+@property(nonatomic, weak, nullable) id <TWTRComposerViewControllerDelegate> delegate;
 
 /**
  * A theme to use for the composer. If nil will default to the light theme.
  */
-@property (nonatomic, null_resettable) TWTRComposerTheme *theme;
+@property(nonatomic, null_resettable) TWTRComposerTheme *theme;
 
 /**
  * Use initWithUserID: instead.

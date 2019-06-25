@@ -5,9 +5,9 @@
 @protocol DCImportDataSeviceDelegate;
 
 typedef enum {
-  DCDataNotChanged = 0,
-  DCDataUpdateFailed,
-  DCDataUpdateSuccess
+    DCDataNotChanged = 0,
+    DCDataUpdateFailed,
+    DCDataUpdateSuccess
 
 } DCImportDataSeviceImportStatus;
 
@@ -17,21 +17,23 @@ typedef enum {
 
 @interface DCImportDataSevice : NSObject
 
-@property(weak, nonatomic) DCCoreDataStore* coreDataStore;
-@property(weak, nonatomic) id<DCImportDataSeviceDelegate> delegate;
+@property(weak, nonatomic) DCCoreDataStore *coreDataStore;
+@property(weak, nonatomic) id <DCImportDataSeviceDelegate> delegate;
 
 // Insert and update data in current context,
-- (instancetype)initWithManagedObjectContext:(DCCoreDataStore*)coreDataStore
+- (instancetype)initWithManagedObjectContext:(DCCoreDataStore *)coreDataStore
                                  andDelegate:
-                                     (id<DCImportDataSeviceDelegate>)delegate;
+                                         (id <DCImportDataSeviceDelegate>)delegate;
+
 - (void)chechUpdates;
+
 - (BOOL)isInitDataImport;
 
 @end
 
-@protocol DCImportDataSeviceDelegate<NSObject>
+@protocol DCImportDataSeviceDelegate <NSObject>
 
-- (void)importDataServiceFinishedImport:(DCImportDataSevice*)importDataService
+- (void)importDataServiceFinishedImport:(DCImportDataSevice *)importDataService
                              withStatus:(DCImportDataSeviceImportStatus)status;
 
 @end

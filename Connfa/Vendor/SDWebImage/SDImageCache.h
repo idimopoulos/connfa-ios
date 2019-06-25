@@ -13,15 +13,15 @@ typedef NS_ENUM(NSInteger, SDImageCacheType) {
     /**
      * The image wasn't available the SDWebImage caches, but was downloaded from the web.
      */
-    SDImageCacheTypeNone,
+            SDImageCacheTypeNone,
     /**
      * The image was obtained from the disk cache.
      */
-    SDImageCacheTypeDisk,
+            SDImageCacheTypeDisk,
     /**
      * The image was obtained from the memory cache.
      */
-    SDImageCacheTypeMemory
+            SDImageCacheTypeMemory
 };
 
 typedef void(^SDWebImageQueryCompletedBlock)(UIImage *image, SDImageCacheType cacheType);
@@ -39,17 +39,17 @@ typedef void(^SDWebImageCalculateSizeBlock)(NSUInteger fileCount, NSUInteger tot
 /**
  * The maximum "total cost" of the in-memory image cache. The cost function is the number of pixels held in memory.
  */
-@property (assign, nonatomic) NSUInteger maxMemoryCost;
+@property(assign, nonatomic) NSUInteger maxMemoryCost;
 
 /**
  * The maximum length of time to keep an image in the cache, in seconds
  */
-@property (assign, nonatomic) NSInteger maxCacheAge;
+@property(assign, nonatomic) NSInteger maxCacheAge;
 
 /**
  * The maximum size of the cache, in bytes.
  */
-@property (assign, nonatomic) NSUInteger maxCacheSize;
+@property(assign, nonatomic) NSUInteger maxCacheSize;
 
 /**
  * Returns global shared cache instance

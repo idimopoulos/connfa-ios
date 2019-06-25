@@ -11,7 +11,7 @@
 @implementation DCTimeRange (CoreDataProperties)
 
 + (NSFetchRequest<DCTimeRange *> *)fetchRequest {
-	return [[NSFetchRequest alloc] initWithEntityName:@"DCTimeRange"];
+    return [[NSFetchRequest alloc] initWithEntityName:@"DCTimeRange"];
 }
 
 @dynamic from;

@@ -15,19 +15,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<DCType *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSString *name;
-@property (nullable, nonatomic, copy) NSNumber *order;
-@property (nullable, nonatomic, copy) NSString *typeIcon;
-@property (nullable, nonatomic, copy) NSNumber *typeID;
-@property (nullable, nonatomic, retain) NSSet<DCEvent *> *events;
+@property(nullable, nonatomic, copy) NSString *name;
+@property(nullable, nonatomic, copy) NSNumber *order;
+@property(nullable, nonatomic, copy) NSString *typeIcon;
+@property(nullable, nonatomic, copy) NSNumber *typeID;
+@property(nullable, nonatomic, retain) NSSet<DCEvent *> *events;
 
 @end
 
 @interface DCType (CoreDataGeneratedAccessors)
 
 - (void)addEventsObject:(DCEvent *)value;
+
 - (void)removeEventsObject:(DCEvent *)value;
+
 - (void)addEvents:(NSSet<DCEvent *> *)values;
+
 - (void)removeEvents:(NSSet<DCEvent *> *)values;
 
 @end

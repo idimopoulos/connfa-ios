@@ -10,14 +10,16 @@
 
 @interface DCAlertsManager : NSObject
 + (void)showTimeZoneAlertForTimeZone:(NSTimeZone *)zone
-                         withSuccess:(void(^)(BOOL))success;
+                         withSuccess:(void (^)(BOOL))success;
 
-+ (void)showAlertWithTitle:(NSString*)title message:(NSString*)msg;
-+ (void)showAlertControllerWithTitle:(NSString*)title
-                             message:(NSString*)msg
++ (void)showAlertWithTitle:(NSString *)title message:(NSString *)msg;
+
++ (void)showAlertControllerWithTitle:(NSString *)title
+                             message:(NSString *)msg
                        forController:(UIViewController *)controller;
-+ (void)showAlertControllerWithTitle:(NSString*)title
-                             message:(NSString*)msg
+
++ (void)showAlertControllerWithTitle:(NSString *)title
+                             message:(NSString *)msg
                        forController:(UIViewController *)controller
-                              action:(void (^)(UIAlertAction*)) action;
+                              action:(void (^)(UIAlertAction *))action;
 @end

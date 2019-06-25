@@ -4,7 +4,7 @@
 
 @interface DCAppFacade : NSObject
 
-@property(nonatomic, weak) DCMainNavigationController* mainNavigationController;
+@property(nonatomic, weak) DCMainNavigationController *mainNavigationController;
 
 + (instancetype)shared;
 

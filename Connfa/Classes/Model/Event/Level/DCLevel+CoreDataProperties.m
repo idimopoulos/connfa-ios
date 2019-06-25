@@ -11,7 +11,7 @@
 @implementation DCLevel (CoreDataProperties)
 
 + (NSFetchRequest<DCLevel *> *)fetchRequest {
-	return [[NSFetchRequest alloc] initWithEntityName:@"DCLevel"];
+    return [[NSFetchRequest alloc] initWithEntityName:@"DCLevel"];
 }
 
 @dynamic levelId;

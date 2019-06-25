@@ -10,48 +10,49 @@
 #import "UIImage+Extension.h"
 
 @interface DCMyScheduleInstructionViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *tutorialImageVIew;
-@property (weak, nonatomic) IBOutlet UIView *backgroundView;
-@property (weak, nonatomic) IBOutlet UIButton *okButton;
+@property(weak, nonatomic) IBOutlet UIImageView *tutorialImageVIew;
+@property(weak, nonatomic) IBOutlet UIView *backgroundView;
+@property(weak, nonatomic) IBOutlet UIButton *okButton;
 
 @end
 
 @implementation DCMyScheduleInstructionViewController
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
-  [self setupUI];
+    [super viewDidLoad];
+    [self setupUI];
 }
 
--(void)viewDidAppear:(BOOL)animated{
-  [super viewDidAppear:animated];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
--(void)dismissSelf{
-  [self dismissViewControllerAnimated:true completion:nil];
+- (void)dismissSelf {
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
--(void)setTutorialImageNamed:(NSString *)name{
-  UIImage *image = [[UIImage imageNamed:name] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-  self.tutorialImageVIew.image = image;
-  self.tutorialImageVIew.tintColor = [DCAppConfiguration navigationBarColor];
+- (void)setTutorialImageNamed:(NSString *)name {
+    UIImage *image = [[UIImage imageNamed:name] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.tutorialImageVIew.image = image;
+    self.tutorialImageVIew.tintColor = [DCAppConfiguration navigationBarColor];
 }
 
--(void)setupUI{
-  self.okButton.layer.cornerRadius = 6.;
-  self.okButton.layer.borderWidth = 1.;
-  self.okButton.layer.borderColor = [UIColor whiteColor].CGColor;
-  self.backgroundView.backgroundColor = [DCAppConfiguration navigationBarColor];
-  UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissSelf)];
-  [self.backgroundView addGestureRecognizer:gestureRecognizer];
+- (void)setupUI {
+    self.okButton.layer.cornerRadius = 6.;
+    self.okButton.layer.borderWidth = 1.;
+    self.okButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.backgroundView.backgroundColor = [DCAppConfiguration navigationBarColor];
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissSelf)];
+    [self.backgroundView addGestureRecognizer:gestureRecognizer];
 }
+
 - (IBAction)onOkButton:(id)sender {
-  [self dismissSelf];
+    [self dismissSelf];
 }
 
 - (void)didReceiveMemoryWarning {
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 

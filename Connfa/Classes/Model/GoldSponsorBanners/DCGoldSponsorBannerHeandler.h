@@ -10,6 +10,8 @@
 
 @interface DCGoldSponsorBannerHeandler : NSObject
 + (id)sharedManager;
+
 - (void)makeRandomGoldenSponsor;
+
 - (NSString *)getSponsorBannerName;
 @end

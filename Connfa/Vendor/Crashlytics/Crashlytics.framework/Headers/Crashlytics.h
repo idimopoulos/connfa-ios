@@ -22,9 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface Crashlytics : NSObject
 
-@property (nonatomic, readonly, copy) NSString *APIKey;
-@property (nonatomic, readonly, copy) NSString *version;
-@property (nonatomic, assign)         BOOL      debugMode;
+@property(nonatomic, readonly, copy) NSString *APIKey;
+@property(nonatomic, readonly, copy) NSString *version;
+@property(nonatomic, assign) BOOL debugMode;
 
 /**
  *
@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
  * synchronously during start.
  *
  **/
-@property (nonatomic, assign, nullable) id <CrashlyticsDelegate> delegate;
+@property(nonatomic, assign, nullable) id <CrashlyticsDelegate> delegate;
 
 /**
  *  The recommended way to install Crashlytics into your application is to place a call to +startWithAPIKey: 
@@ -51,6 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return The singleton Crashlytics instance
  */
 + (Crashlytics *)startWithAPIKey:(NSString *)apiKey;
+
 + (Crashlytics *)startWithAPIKey:(NSString *)apiKey afterDelay:(NSTimeInterval)delay CLS_DEPRECATED("Crashlytics no longer needs or uses the delay parameter.  Please use +startWithAPIKey: instead.");
 
 /**
@@ -62,8 +63,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return The singleton Crashlytics instance
  */
-+ (Crashlytics *)startWithAPIKey:(NSString *)apiKey delegate:(nullable id<CrashlyticsDelegate>)delegate;
-+ (Crashlytics *)startWithAPIKey:(NSString *)apiKey delegate:(nullable id<CrashlyticsDelegate>)delegate afterDelay:(NSTimeInterval)delay CLS_DEPRECATED("Crashlytics no longer needs or uses the delay parameter.  Please use +startWithAPIKey:delegate: instead.");
++ (Crashlytics *)startWithAPIKey:(NSString *)apiKey delegate:(nullable id <CrashlyticsDelegate>)delegate;
+
++ (Crashlytics *)startWithAPIKey:(NSString *)apiKey delegate:(nullable id <CrashlyticsDelegate>)delegate afterDelay:(NSTimeInterval)delay CLS_DEPRECATED("Crashlytics no longer needs or uses the delay parameter.  Please use +startWithAPIKey:delegate: instead.");
 
 /**
  *  Access the singleton Crashlytics instance.
@@ -126,7 +128,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setUserEmail:(nullable NSString *)email;
 
 + (void)setUserIdentifier:(nullable NSString *)identifier CLS_DEPRECATED("Please access this method via +sharedInstance");
+
 + (void)setUserName:(nullable NSString *)name CLS_DEPRECATED("Please access this method via +sharedInstance");
+
 + (void)setUserEmail:(nullable NSString *)email CLS_DEPRECATED("Please access this method via +sharedInstance");
 
 /**
@@ -164,8 +168,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setFloatValue:(float)value forKey:(NSString *)key;
 
 + (void)setObjectValue:(nullable id)value forKey:(NSString *)key CLS_DEPRECATED("Please access this method via +sharedInstance");
+
 + (void)setIntValue:(int)value forKey:(NSString *)key CLS_DEPRECATED("Please access this method via +sharedInstance");
+
 + (void)setBoolValue:(BOOL)value forKey:(NSString *)key CLS_DEPRECATED("Please access this method via +sharedInstance");
+
 + (void)setFloatValue:(float)value forKey:(NSString *)key CLS_DEPRECATED("Please access this method via +sharedInstance");
 
 /**
@@ -194,12 +201,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  **/
 - (void)recordError:(NSError *)error;
+
 - (void)recordError:(NSError *)error withAdditionalUserInfo:(nullable CLS_GENERIC_NSDICTIONARY(NSString *, id) *)userInfo;
 
 - (void)logEvent:(NSString *)eventName CLS_DEPRECATED("Please refer to Answers +logCustomEventWithName:");
-- (void)logEvent:(NSString *)eventName attributes:(nullable NSDictionary *) attributes CLS_DEPRECATED("Please refer to Answers +logCustomEventWithName:");
+
+- (void)logEvent:(NSString *)eventName attributes:(nullable NSDictionary *)attributes CLS_DEPRECATED("Please refer to Answers +logCustomEventWithName:");
+
 + (void)logEvent:(NSString *)eventName CLS_DEPRECATED("Please refer to Answers +logCustomEventWithName:");
-+ (void)logEvent:(NSString *)eventName attributes:(nullable NSDictionary *) attributes CLS_DEPRECATED("Please refer to Answers +logCustomEventWithName:");
+
++ (void)logEvent:(NSString *)eventName attributes:(nullable NSDictionary *)attributes CLS_DEPRECATED("Please refer to Answers +logCustomEventWithName:");
 
 @end
 
@@ -216,6 +227,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 - (void)crashlyticsDidDetectCrashDuringPreviousExecution:(Crashlytics *)crashlytics CLS_DEPRECATED("Please refer to -crashlyticsDidDetectReportForLastExecution:");
+
 - (void)crashlytics:(Crashlytics *)crashlytics didDetectCrashDuringPreviousExecution:(id <CLSCrashReport>)crash CLS_DEPRECATED("Please refer to -crashlyticsDidDetectReportForLastExecution:");
 
 /**

@@ -60,19 +60,20 @@
   enum _name : _type
 #endif
 
-extern NSString* const kReachabilityChangedNotification;
+extern NSString *const kReachabilityChangedNotification;
 
 typedef NS_ENUM(NSInteger, NetworkStatus) {
-  // Apple NetworkStatus Compatible Names.
-  NotReachable = 0,
-  ReachableViaWiFi = 2,
-  ReachableViaWWAN = 1
+    // Apple NetworkStatus Compatible Names.
+            NotReachable = 0,
+    ReachableViaWiFi = 2,
+    ReachableViaWWAN = 1
 };
 
 @class Reachability;
 
-typedef void (^NetworkReachable)(Reachability* reachability);
-typedef void (^NetworkUnreachable)(Reachability* reachability);
+typedef void (^NetworkReachable)(Reachability *reachability);
+
+typedef void (^NetworkUnreachable)(Reachability *reachability);
 
 @interface Reachability : NSObject
 
@@ -81,21 +82,28 @@ typedef void (^NetworkUnreachable)(Reachability* reachability);
 
 @property(nonatomic, assign) BOOL reachableOnWWAN;
 
-+ (Reachability*)reachabilityWithHostname:(NSString*)hostname;
++ (Reachability *)reachabilityWithHostname:(NSString *)hostname;
+
 // This is identical to the function above, but is here to maintain
 // compatibility with Apples original code. (see .m)
-+ (Reachability*)reachabilityWithHostName:(NSString*)hostname;
-+ (Reachability*)reachabilityForInternetConnection;
-+ (Reachability*)reachabilityWithAddress:(const struct sockaddr_in*)hostAddress;
-+ (Reachability*)reachabilityForLocalWiFi;
++ (Reachability *)reachabilityWithHostName:(NSString *)hostname;
 
-- (Reachability*)initWithReachabilityRef:(SCNetworkReachabilityRef)ref;
++ (Reachability *)reachabilityForInternetConnection;
+
++ (Reachability *)reachabilityWithAddress:(const struct sockaddr_in *)hostAddress;
+
++ (Reachability *)reachabilityForLocalWiFi;
+
+- (Reachability *)initWithReachabilityRef:(SCNetworkReachabilityRef)ref;
 
 - (BOOL)startNotifier;
+
 - (void)stopNotifier;
 
 - (BOOL)isReachable;
+
 - (BOOL)isReachableViaWWAN;
+
 - (BOOL)isReachableViaWiFi;
 
 // WWAN may be available, but not active until a connection has been
@@ -105,12 +113,16 @@ typedef void (^NetworkUnreachable)(Reachability* reachability);
 - (BOOL)connectionRequired;    // Apple's routine.
 // Dynamic, on demand connection?
 - (BOOL)isConnectionOnDemand;
+
 // Is user intervention required?
 - (BOOL)isInterventionRequired;
 
 - (NetworkStatus)currentReachabilityStatus;
+
 - (SCNetworkReachabilityFlags)reachabilityFlags;
-- (NSString*)currentReachabilityString;
-- (NSString*)currentReachabilityFlags;
+
+- (NSString *)currentReachabilityString;
+
+- (NSString *)currentReachabilityFlags;
 
 @end

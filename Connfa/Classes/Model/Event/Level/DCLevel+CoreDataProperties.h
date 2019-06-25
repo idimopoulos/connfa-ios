@@ -15,19 +15,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<DCLevel *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSNumber *levelId;
-@property (nullable, nonatomic, copy) NSString *name;
-@property (nullable, nonatomic, copy) NSNumber *order;
-@property (nullable, nonatomic, copy) NSNumber *selectedInFilter;
-@property (nullable, nonatomic, retain) NSSet<DCEvent *> *events;
+@property(nullable, nonatomic, copy) NSNumber *levelId;
+@property(nullable, nonatomic, copy) NSString *name;
+@property(nullable, nonatomic, copy) NSNumber *order;
+@property(nullable, nonatomic, copy) NSNumber *selectedInFilter;
+@property(nullable, nonatomic, retain) NSSet<DCEvent *> *events;
 
 @end
 
 @interface DCLevel (CoreDataGeneratedAccessors)
 
 - (void)addEventsObject:(DCEvent *)value;
+
 - (void)removeEventsObject:(DCEvent *)value;
+
 - (void)addEvents:(NSSet<DCEvent *> *)values;
+
 - (void)removeEvents:(NSSet<DCEvent *> *)values;
 
 @end

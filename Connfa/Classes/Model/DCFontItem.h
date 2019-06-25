@@ -10,9 +10,9 @@
 
 @interface DCFontItem : NSObject
 
-@property (nonatomic, strong) NSString *titleFont;
-@property (nonatomic, strong) NSString *nameFont;
-@property (nonatomic, strong) NSString *descriptionFont;
+@property(nonatomic, strong) NSString *titleFont;
+@property(nonatomic, strong) NSString *nameFont;
+@property(nonatomic, strong) NSString *descriptionFont;
 
 
 + (id)initWithTitleFont:(NSString *)titleFont andNameFont:(NSString *)nameFont andDescriptionFont:(NSString *)descriptionFont;

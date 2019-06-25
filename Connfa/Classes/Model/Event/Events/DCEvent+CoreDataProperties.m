@@ -11,7 +11,7 @@
 @implementation DCEvent (CoreDataProperties)
 
 + (NSFetchRequest<DCEvent *> *)fetchRequest {
-	return [[NSFetchRequest alloc] initWithEntityName:@"DCEvent"];
+    return [[NSFetchRequest alloc] initWithEntityName:@"DCEvent"];
 }
 
 @dynamic calendarId;

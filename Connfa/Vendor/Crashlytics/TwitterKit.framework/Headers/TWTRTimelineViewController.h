@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import <TwitterKit/TWTRTimelineDataSource.h>
+
 @protocol TWTRTweetViewDelegate;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -37,17 +38,17 @@ NS_ASSUME_NONNULL_BEGIN
 
   May be set to update the Tweets being shown by this table view. Must be set on the main thread.
  */
-@property (nonatomic, copy) id<TWTRTimelineDataSource> dataSource;
+@property(nonatomic, copy) id <TWTRTimelineDataSource> dataSource;
 
 /**
  *  Whether action buttons (Like, Share) should be shown on the `TWTRTweetTableViewCell`s inside the tableview.
  */
-@property (nonatomic) BOOL showTweetActions;
+@property(nonatomic) BOOL showTweetActions;
 
 /**
  * If set, this value will be passed to all TWTRTweetView instances in the timeline.
  */
-@property (nonatomic, weak) id<TWTRTweetViewDelegate> tweetViewDelegate;
+@property(nonatomic, weak) id <TWTRTweetViewDelegate> tweetViewDelegate;
 
 /**
  Initializes a timeline view controller. Does not start loading tweets until
@@ -59,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return A fully initialized `TWTRTimelineViewController` or nil if the data source is missing.
  */
-- (instancetype)initWithDataSource:(nullable id<TWTRTimelineDataSource>)dataSource;
+- (instancetype)initWithDataSource:(nullable id <TWTRTimelineDataSource>)dataSource;
 
 - (instancetype)initWithStyle:(UITableViewStyle)style NS_UNAVAILABLE;
 

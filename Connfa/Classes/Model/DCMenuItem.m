@@ -11,16 +11,16 @@
 
 @implementation DCMenuItem
 
-+ (id)initWithTitle:(NSString *)title icon:(NSString *)iconName selectedIcon:(NSString *)selectedIconName controllerId:(NSString *)controllerName andMenuType:(NSNumber*)menuType {
++ (id)initWithTitle:(NSString *)title icon:(NSString *)iconName selectedIcon:(NSString *)selectedIconName controllerId:(NSString *)controllerName andMenuType:(NSNumber *)menuType {
 
-  DCMenuItem* item = [[DCMenuItem alloc] init];
-  item.titleName = title;
-  item.iconName = iconName;
-  item.selectedIconName = selectedIconName;
-  item.controllerName = controllerName;
-  item.menuType = menuType;
-  
-  return item;
+    DCMenuItem *item = [[DCMenuItem alloc] init];
+    item.titleName = title;
+    item.iconName = iconName;
+    item.selectedIconName = selectedIconName;
+    item.controllerName = controllerName;
+    item.menuType = menuType;
+
+    return item;
 }
 
 

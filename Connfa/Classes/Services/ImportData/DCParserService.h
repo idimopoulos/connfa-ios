@@ -1,7 +1,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^CompleteParseCallback)(NSError* error, NSDictionary* result);
+typedef void (^CompleteParseCallback)(NSError *error, NSDictionary *result);
 
 @interface DCParserService : NSObject
 
@@ -12,7 +12,7 @@ typedef void (^CompleteParseCallback)(NSError* error, NSDictionary* result);
  *  @param callback call with error and dictionary from jsonData
  */
 
-+ (void)parseJSONData:(NSData*)jsonData
++ (void)parseJSONData:(NSData *)jsonData
          withCallBack:(CompleteParseCallback)callback;
 
 /**
@@ -23,7 +23,7 @@ typedef void (^CompleteParseCallback)(NSError* error, NSDictionary* result);
  *                  result will be a dictionary with same KEY as jsonData
  */
 
-- (void)parseJSONDataFromDictionary:(NSDictionary*)jsonData
+- (void)parseJSONDataFromDictionary:(NSDictionary *)jsonData
                        withCallBack:(CompleteParseCallback)callback;
 
 @end

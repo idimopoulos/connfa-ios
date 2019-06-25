@@ -24,7 +24,7 @@
 
 #if __has_feature(objc_generics)
 #define ANS_GENERIC_NSARRAY(type) NSArray<type>
-#define ANS_GENERIC_NSDICTIONARY(key_type,object_key) NSDictionary<key_type, object_key>
+#define ANS_GENERIC_NSDICTIONARY(key_type, object_key) NSDictionary<key_type, object_key>
 #else
 #define ANS_GENERIC_NSARRAY(type) NSArray
 #define ANS_GENERIC_NSDICTIONARY(key_type,object_key) NSDictionary

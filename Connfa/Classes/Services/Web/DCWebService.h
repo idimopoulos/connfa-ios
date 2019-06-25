@@ -4,11 +4,13 @@
 /**
  *  DCWebService manages http request/repsponse
  */
-typedef void (^SuccessResponseCallback)(NSHTTPURLResponse* response, id data);
-typedef void (^FailureResponseCallback)(NSHTTPURLResponse* response,
-                                        id data,
-                                        NSError* error);
-typedef void (^CompleteRequestCallback)(BOOL success, NSDictionary* result);
+typedef void (^SuccessResponseCallback)(NSHTTPURLResponse *response, id data);
+
+typedef void (^FailureResponseCallback)(NSHTTPURLResponse *response,
+        id data,
+        NSError *error);
+
+typedef void (^CompleteRequestCallback)(BOOL success, NSDictionary *result);
 
 @interface DCWebService : NSObject
 
@@ -21,12 +23,12 @@ typedef void (^CompleteRequestCallback)(BOOL success, NSDictionary* result);
  *
  *  @return NSURLRequest
  */
-+ (NSURLRequest*)urlRequestForURI:(NSString*)uri
-                   withHTTPMethod:(NSString*)httpMethod
-                withHeaderOptions:(NSDictionary*)options;
++ (NSURLRequest *)urlRequestForURI:(NSString *)uri
+                    withHTTPMethod:(NSString *)httpMethod
+                 withHeaderOptions:(NSDictionary *)options;
 
-+(NSMutableURLRequest *)mutableURLRequestForURI:(NSString *)uri
-                                 withHTTPMethod:(NSString*)httpMethod;
++ (NSMutableURLRequest *)mutableURLRequestForURI:(NSString *)uri
+                                  withHTTPMethod:(NSString *)httpMethod;
 
 /**
  *  Fetch data from server synchronously accroding to urlRequest in the call
@@ -38,7 +40,7 @@ typedef void (^CompleteRequestCallback)(BOOL success, NSDictionary* result);
  *  @param failureCallback request failed
  */
 
-+ (void)dataFromURLRequest:(NSURLRequest*)urlRequest
++ (void)dataFromURLRequest:(NSURLRequest *)urlRequest
                  onSuccess:(SuccessResponseCallback)successCallback
                    onError:(FailureResponseCallback)failureCallback;
 
@@ -50,7 +52,7 @@ typedef void (^CompleteRequestCallback)(BOOL success, NSDictionary* result);
  *  @param successCallback call when request is success in global queue
  *  @param failureCallback call when request is failure in global queue
  */
-+ (void)fetchDataFromURLRequest:(NSURLRequest*)urlRequest
++ (void)fetchDataFromURLRequest:(NSURLRequest *)urlRequest
                       onSuccess:(SuccessResponseCallback)successCallback
                         onError:(FailureResponseCallback)failureCallback;
 
@@ -60,7 +62,7 @@ typedef void (^CompleteRequestCallback)(BOOL success, NSDictionary* result);
  *  @param requests array with NSURLRequest objects
  *  @param callback call in globar queue when all requests has finished
  */
-- (void)fetchesDataFromURLRequests:(NSArray*)requests
+- (void)fetchesDataFromURLRequests:(NSArray *)requests
                           callBack:(CompleteRequestCallback)callback;
 
 @end

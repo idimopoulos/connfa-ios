@@ -24,11 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIScrollView (EmptyDataSet)
 
 /** The empty datasets data source. */
-@property (nonatomic, weak, nullable) IBOutlet id <DZNEmptyDataSetSource> emptyDataSetSource;
+@property(nonatomic, weak, nullable) IBOutlet id <DZNEmptyDataSetSource> emptyDataSetSource;
 /** The empty datasets delegate. */
-@property (nonatomic, weak, nullable) IBOutlet id <DZNEmptyDataSetDelegate> emptyDataSetDelegate;
+@property(nonatomic, weak, nullable) IBOutlet id <DZNEmptyDataSetDelegate> emptyDataSetDelegate;
 /** YES if any empty dataset is visible. */
-@property (nonatomic, readonly, getter = isEmptyDataSetVisible) BOOL emptyDataSetVisible;
+@property(nonatomic, readonly, getter = isEmptyDataSetVisible) BOOL emptyDataSetVisible;
 
 /**
  Reloads the empty dataset content receiver.
@@ -145,6 +145,7 @@ NS_ASSUME_NONNULL_BEGIN
  @return The offset for vertical and horizontal alignment.
  */
 - (CGPoint)offsetForEmptyDataSet:(UIScrollView *)scrollView DZNEmptyDataSetDeprecated(-verticalOffsetForEmptyDataSet:);
+
 - (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView;
 
 /**

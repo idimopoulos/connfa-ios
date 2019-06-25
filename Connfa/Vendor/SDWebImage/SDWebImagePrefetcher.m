@@ -14,14 +14,14 @@
 
 @interface SDWebImagePrefetcher ()
 
-@property (strong, nonatomic) SDWebImageManager *manager;
-@property (strong, nonatomic) NSArray *prefetchURLs;
-@property (assign, nonatomic) NSUInteger requestedCount;
-@property (assign, nonatomic) NSUInteger skippedCount;
-@property (assign, nonatomic) NSUInteger finishedCount;
-@property (assign, nonatomic) NSTimeInterval startedTime;
-@property (copy, nonatomic) SDWebImagePrefetcherCompletionBlock completionBlock;
-@property (copy, nonatomic) SDWebImagePrefetcherProgressBlock progressBlock;
+@property(strong, nonatomic) SDWebImageManager *manager;
+@property(strong, nonatomic) NSArray *prefetchURLs;
+@property(assign, nonatomic) NSUInteger requestedCount;
+@property(assign, nonatomic) NSUInteger skippedCount;
+@property(assign, nonatomic) NSUInteger finishedCount;
+@property(assign, nonatomic) NSTimeInterval startedTime;
+@property(copy, nonatomic) SDWebImagePrefetcherCompletionBlock completionBlock;
+@property(copy, nonatomic) SDWebImagePrefetcherProgressBlock progressBlock;
 
 @end
 
@@ -62,13 +62,12 @@
 
         if (image) {
             if (self.progressBlock) {
-                self.progressBlock(self.finishedCount,[self.prefetchURLs count]);
+                self.progressBlock(self.finishedCount, [self.prefetchURLs count]);
             }
             NSLog(@"Prefetched %@ out of %@", @(self.finishedCount), @(self.prefetchURLs.count));
-        }
-        else {
+        } else {
             if (self.progressBlock) {
-                self.progressBlock(self.finishedCount,[self.prefetchURLs count]);
+                self.progressBlock(self.finishedCount, [self.prefetchURLs count]);
             }
             NSLog(@"Prefetched %@ out of %@ (Failed)", @(self.finishedCount), @(self.prefetchURLs.count));
 
@@ -87,8 +86,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self startPrefetchingAtIndex:self.requestedCount];
             });
-        }
-        else if (self.finishedCount == self.requestedCount) {
+        } else if (self.finishedCount == self.requestedCount) {
             [self reportStatus];
             if (self.completionBlock) {
                 self.completionBlock(self.finishedCount, self.skippedCount);

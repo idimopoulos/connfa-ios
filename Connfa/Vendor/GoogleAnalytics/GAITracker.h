@@ -14,7 +14,7 @@
  calls are expected to block or take a long time.  All network and disk activity
  will take place in the background.
  */
-@protocol GAITracker<NSObject>
+@protocol GAITracker <NSObject>
 
 /*!
  Name of this tracker.

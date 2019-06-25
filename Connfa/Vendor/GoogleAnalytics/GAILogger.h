@@ -7,11 +7,11 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, GAILogLevel) {
-  kGAILogLevelNone = 0,
-  kGAILogLevelError = 1,
-  kGAILogLevelWarning = 2,
-  kGAILogLevelInfo = 3,
-  kGAILogLevelVerbose = 4
+    kGAILogLevelNone = 0,
+    kGAILogLevelError = 1,
+    kGAILogLevelWarning = 2,
+    kGAILogLevelInfo = 3,
+    kGAILogLevelVerbose = 4
 };
 
 /*!
@@ -19,13 +19,13 @@ typedef NS_ENUM(NSUInteger, GAILogLevel) {
  Implementations of this protocol can be provided to the |GAI| class,
  to be used as the logger by the SDK.  See the |logger| property in GAI.h.
  */
-@protocol GAILogger<NSObject>
+@protocol GAILogger <NSObject>
 @required
 
 /*!
  Only messages of |logLevel| and below are logged.
  */
-@property (nonatomic, assign) GAILogLevel logLevel;
+@property(nonatomic, assign) GAILogLevel logLevel;
 
 /*!
  Logs message with log level |kGAILogLevelVerbose|.

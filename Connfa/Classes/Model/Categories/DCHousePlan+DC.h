@@ -2,6 +2,6 @@
 #import "DCHousePlan.h"
 #import "DCManagedObjectUpdateProtocol.h"
 
-@interface DCHousePlan (DC)<ManagedObjectUpdateProtocol>
+@interface DCHousePlan (DC) <ManagedObjectUpdateProtocol>
 
 @end

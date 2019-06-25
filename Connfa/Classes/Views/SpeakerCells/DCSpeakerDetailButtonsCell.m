@@ -3,20 +3,20 @@
 
 @implementation DCSpeakerDetailButtonsCell
 
-- (void)initData:(DCSpeaker*)speaker {
-  // hide unused buttons
+- (void)initData:(DCSpeaker *)speaker {
+    // hide unused buttons
 
-  self.twitterButton.hidden = !speaker.twitterName.length;
-  self.webButton.hidden = !speaker.webSite.length;
+    self.twitterButton.hidden = !speaker.twitterName.length;
+    self.webButton.hidden = !speaker.webSite.length;
 
-  if (self.twitterButton.hidden) {
-    [self.twitterButton setImage:[UIImage new] forState:UIControlStateNormal];
-    self.webButtonLeftPadding.constant = 0;
-  }
+    if (self.twitterButton.hidden) {
+        [self.twitterButton setImage:[UIImage new] forState:UIControlStateNormal];
+        self.webButtonLeftPadding.constant = 0;
+    }
 
-  self.separatorView.hidden = self.twitterButton.hidden && self.webButton.hidden;
-  
-  // if there is no description below, remove bottom padding
+    self.separatorView.hidden = self.twitterButton.hidden && self.webButton.hidden;
+
+    // if there is no description below, remove bottom padding
 //  if (speaker.characteristic.length) {
 //    self.twitterButtonBottomPadding.constant = 0;
 //  }

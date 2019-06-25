@@ -206,7 +206,7 @@
  */
 - (GAIDictionaryBuilder *)addProductImpression:(GAIEcommerceProduct *)product
                                 impressionList:(NSString *)name
-                                impressionSource:(NSString *)source;
+                              impressionSource:(NSString *)source;
 
 /*!
  Add a promotion to this hit.

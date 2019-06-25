@@ -2,9 +2,9 @@
 #import <UIKit/UIKit.h>
 
 typedef enum {
-  VerticalAlignmentTop = 0,  // default
-  VerticalAlignmentMiddle,
-  VerticalAlignmentBottom,
+    VerticalAlignmentTop = 0,  // default
+    VerticalAlignmentMiddle,
+    VerticalAlignmentBottom,
 } VerticalAlignment;
 
 @interface DCLabel : UILabel

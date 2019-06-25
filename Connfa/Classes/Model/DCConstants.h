@@ -23,7 +23,8 @@ extern NSString *const TWITTER_API_KEY;
 extern NSString *const TWITTER_API_SECRET;
 extern NSString *const EVENT_NAME;
 
-+(NSArray*)appMenuItems;
-+(NSArray*)appFonts;
++ (NSArray *)appMenuItems;
+
++ (NSArray *)appFonts;
 
 @end

@@ -4,6 +4,6 @@
 
 @interface DCAboutViewController : DCBaseViewController
 
-@property(nonatomic, weak) DCInfoCategory* data;
+@property(nonatomic, weak) DCInfoCategory *data;
 
 @end

@@ -16,7 +16,7 @@
         return nil;
     }
 
-    CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)data, NULL);
+    CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef) data, NULL);
 
     size_t count = CGImageSourceGetCount(source);
 
@@ -24,8 +24,7 @@
 
     if (count <= 1) {
         animatedImage = [[UIImage alloc] initWithData:data];
-    }
-    else {
+    } else {
         NSMutableArray *images = [NSMutableArray array];
 
         NSTimeInterval duration = 0.0f;
@@ -55,16 +54,15 @@
 + (float)sd_frameDurationAtIndex:(NSUInteger)index source:(CGImageSourceRef)source {
     float frameDuration = 0.1f;
     CFDictionaryRef cfFrameProperties = CGImageSourceCopyPropertiesAtIndex(source, index, nil);
-    NSDictionary *frameProperties = (__bridge NSDictionary *)cfFrameProperties;
-    NSDictionary *gifProperties = frameProperties[(NSString *)kCGImagePropertyGIFDictionary];
+    NSDictionary *frameProperties = (__bridge NSDictionary *) cfFrameProperties;
+    NSDictionary *gifProperties = frameProperties[(NSString *) kCGImagePropertyGIFDictionary];
 
-    NSNumber *delayTimeUnclampedProp = gifProperties[(NSString *)kCGImagePropertyGIFUnclampedDelayTime];
+    NSNumber *delayTimeUnclampedProp = gifProperties[(NSString *) kCGImagePropertyGIFUnclampedDelayTime];
     if (delayTimeUnclampedProp) {
         frameDuration = [delayTimeUnclampedProp floatValue];
-    }
-    else {
+    } else {
 
-        NSNumber *delayTimeProp = gifProperties[(NSString *)kCGImagePropertyGIFDelayTime];
+        NSNumber *delayTimeProp = gifProperties[(NSString *) kCGImagePropertyGIFDelayTime];
         if (delayTimeProp) {
             frameDuration = [delayTimeProp floatValue];
         }
@@ -104,8 +102,7 @@
         }
 
         return [UIImage imageNamed:name];
-    }
-    else {
+    } else {
         NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"gif"];
 
         NSData *data = [NSData dataWithContentsOfFile:path];
@@ -134,8 +131,7 @@
 
     if (widthFactor > heightFactor) {
         thumbnailPoint.y = (size.height - scaledSize.height) * 0.5;
-    }
-    else if (widthFactor < heightFactor) {
+    } else if (widthFactor < heightFactor) {
         thumbnailPoint.x = (size.width - scaledSize.width) * 0.5;
     }
 

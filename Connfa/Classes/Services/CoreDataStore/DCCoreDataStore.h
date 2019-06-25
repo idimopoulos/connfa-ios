@@ -30,13 +30,13 @@
  *
  *  @return NSManagedObjectContext which works with NSFetchResultController
  */
-+ (NSManagedObjectContext*)mainQueueContext;
++ (NSManagedObjectContext *)mainQueueContext;
 
 /**
  *  Context that works on background Queue
  *
  *  @return  NSManagedObjectContext for backround working
  */
-+ (NSManagedObjectContext*)privateQueueContext;
++ (NSManagedObjectContext *)privateQueueContext;
 
 @end

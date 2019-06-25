@@ -15,7 +15,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void (^TWTRAuthenticationCompletionHandler)(id<TWTRSessionStore> sessionStore, NSString *userID);
+typedef void (^TWTRAuthenticationCompletionHandler)(id <TWTRSessionStore> sessionStore, NSString *userID);
 
 /**
  Delegate for `TWTRTweetView` to receive updates on the user interacting with this particular Tweet view.

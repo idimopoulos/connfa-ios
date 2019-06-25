@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<DCTimeRange *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSDate *from;
-@property (nullable, nonatomic, copy) NSDate *to;
+@property(nullable, nonatomic, copy) NSDate *from;
+@property(nullable, nonatomic, copy) NSDate *to;
 
 @end
 

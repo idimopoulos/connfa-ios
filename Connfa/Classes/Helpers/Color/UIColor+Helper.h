@@ -3,6 +3,6 @@
 
 @interface UIColor (Helper)
 
-+ (UIColor*)colorFromHexString:(NSString*)hexString;
++ (UIColor *)colorFromHexString:(NSString *)hexString;
 
 @end

@@ -11,22 +11,23 @@
 #import <UIKit/UIKit.h>
 
 typedef void (^CompletionBlock)();
+
 typedef void (^BackButtonBlock)();
 
 @interface DCLimitedNavigationController
-    : UINavigationController<UINavigationControllerDelegate,
-                             UINavigationBarDelegate>
+        : UINavigationController <UINavigationControllerDelegate,
+        UINavigationBarDelegate>
 
 @property(nonatomic) NSInteger maxDepth;
 
-- (instancetype)initWithRootViewController:(UIViewController*)rootViewController
+- (instancetype)initWithRootViewController:(UIViewController *)rootViewController
                                 completion:(CompletionBlock)aBlock;
 
-- (instancetype)initWithRootViewController:(UIViewController*)rootViewController
+- (instancetype)initWithRootViewController:(UIViewController *)rootViewController
                                 completion:(CompletionBlock)aBlock
                                      depth:(NSInteger)maxDepth;
 
-- (instancetype)initWithRootViewController:(UIViewController*)rootViewController
+- (instancetype)initWithRootViewController:(UIViewController *)rootViewController
                              dismissAction:(BackButtonBlock)aBlock
                                      depth:(NSInteger)maxDepth;
 

@@ -36,6 +36,7 @@
 @end
 
 typedef void(^SDWebImagePrefetcherProgressBlock)(NSUInteger noOfFinishedUrls, NSUInteger noOfTotalUrls);
+
 typedef void(^SDWebImagePrefetcherCompletionBlock)(NSUInteger noOfFinishedUrls, NSUInteger noOfSkippedUrls);
 
 /**
@@ -46,19 +47,19 @@ typedef void(^SDWebImagePrefetcherCompletionBlock)(NSUInteger noOfFinishedUrls, 
 /**
  *  The web image manager
  */
-@property (strong, nonatomic, readonly) SDWebImageManager *manager;
+@property(strong, nonatomic, readonly) SDWebImageManager *manager;
 
 /**
  * Maximum number of URLs to prefetch at the same time. Defaults to 3.
  */
-@property (nonatomic, assign) NSUInteger maxConcurrentDownloads;
+@property(nonatomic, assign) NSUInteger maxConcurrentDownloads;
 
 /**
  * SDWebImageOptions for prefetcher. Defaults to SDWebImageLowPriority.
  */
-@property (nonatomic, assign) SDWebImageOptions options;
+@property(nonatomic, assign) SDWebImageOptions options;
 
-@property (weak, nonatomic) id <SDWebImagePrefetcherDelegate> delegate;
+@property(weak, nonatomic) id <SDWebImagePrefetcherDelegate> delegate;
 
 /**
  * Return the global image prefetcher instance.

@@ -5,11 +5,17 @@
 
 @interface NSArray (DC)
 
-- (NSArray*)objectsFromDictionaries;
-- (NSArray*)sortedDates;
-- (NSArray*)sortedByStartHour;
-- (NSArray*)eventsForTimeRange:(DCTimeRange*)timeRange;
-- (NSArray*)dictionaryByReplacingNullsWithStrings;
-- (NSArray*)sortedByKey:(NSString*)key;
-- (NSArray*)uniqueDates;
+- (NSArray *)objectsFromDictionaries;
+
+- (NSArray *)sortedDates;
+
+- (NSArray *)sortedByStartHour;
+
+- (NSArray *)eventsForTimeRange:(DCTimeRange *)timeRange;
+
+- (NSArray *)dictionaryByReplacingNullsWithStrings;
+
+- (NSArray *)sortedByKey:(NSString *)key;
+
+- (NSArray *)uniqueDates;
 @end

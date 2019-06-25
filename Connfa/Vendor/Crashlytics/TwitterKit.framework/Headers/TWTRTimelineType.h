@@ -9,24 +9,24 @@
  *  Type of timelines that may be loaded and shown to the user.
  */
 typedef NS_ENUM(NSUInteger, TWTRTimelineType) {
-    
+
     /*
      *  User Timeline
      */
-    TWTRTimelineTypeUser = 1,
-    
+            TWTRTimelineTypeUser = 1,
+
     /*
      *  Search Timeline
      */
-    TWTRTimelineTypeSearch,
-    
+            TWTRTimelineTypeSearch,
+
     /**
      *  Collection Timeline
      */
-    TWTRTimelineTypeCollection,
-    
+            TWTRTimelineTypeCollection,
+
     /**
      *  List Timeline
      */
-    TWTRTimelineTypeList,
+            TWTRTimelineTypeList,
 };

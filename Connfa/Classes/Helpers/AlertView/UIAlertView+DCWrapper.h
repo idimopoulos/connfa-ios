@@ -10,6 +10,6 @@
 
 @interface UIAlertView (DCWrapper)
 
-- (void)showWithCompletion:(void(^)(UIAlertView *alertView, NSInteger buttonIndex))completion;
+- (void)showWithCompletion:(void (^)(UIAlertView *alertView, NSInteger buttonIndex))completion;
 
 @end

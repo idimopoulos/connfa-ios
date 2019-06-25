@@ -9,25 +9,30 @@
 
 @import UIKit;
 
-extern NSString* kDCTimeslotKEY;
-extern NSString* kDCTimeslotEventKEY;
+extern NSString *kDCTimeslotKEY;
+extern NSString *kDCTimeslotEventKEY;
 
 @class DCEventStrategy, DCEvent, DCTimeRange, DCEventDataSource;
 
-@protocol DCDayEventSourceDelegate<NSObject>
+@protocol DCDayEventSourceDelegate <NSObject>
 
-- (void)dataSourceStartUpdateEvents:(DCEventDataSource*)dataSource;
-- (void)dataSourceEndUpdateEvents:(DCEventDataSource*)dataSource;
+- (void)dataSourceStartUpdateEvents:(DCEventDataSource *)dataSource;
+
+- (void)dataSourceEndUpdateEvents:(DCEventDataSource *)dataSource;
 
 @end
 
-@protocol DCDayEventSourceProtocol<NSObject>
+@protocol DCDayEventSourceProtocol <NSObject>
 
 - (void)reloadEvents:(BOOL)isFromPullToRefresh;
-- (DCEvent*)eventForIndexPath:(NSIndexPath*)indexPath;
-- (DCTimeRange*)timeRangeForSection:(NSInteger)section;
-- (NSIndexPath*)actualEventIndexPath;
-- (NSString*)titleForSectionAtIdexPath:(NSInteger)section;
+
+- (DCEvent *)eventForIndexPath:(NSIndexPath *)indexPath;
+
+- (DCTimeRange *)timeRangeForSection:(NSInteger)section;
+
+- (NSIndexPath *)actualEventIndexPath;
+
+- (NSString *)titleForSectionAtIdexPath:(NSInteger)section;
 
 @end
 
@@ -37,27 +42,31 @@ extern NSString* kDCTimeslotEventKEY;
  */
 
 @interface DCEventDataSource
-    : NSObject<UITableViewDataSource, DCDayEventSourceProtocol>
+        : NSObject <UITableViewDataSource, DCDayEventSourceProtocol>
 
-@property(copy, nonatomic) UITableViewCell* (^prepareBlockForTableView)
-    (UITableView* tableView, NSIndexPath* indexPath);
+@property(copy, nonatomic) UITableViewCell *(^prepareBlockForTableView)
+        (UITableView *tableView, NSIndexPath *indexPath);
 
-@property(strong, nonatomic) DCEventStrategy* eventStrategy;
-@property(strong, nonatomic) NSDate* selectedDay;
-@property(strong, nonatomic) NSArray* eventsByTimeRange;
+@property(strong, nonatomic) DCEventStrategy *eventStrategy;
+@property(strong, nonatomic) NSDate *selectedDay;
+@property(strong, nonatomic) NSArray *eventsByTimeRange;
 
-@property(weak, nonatomic) UITableView* tableView;
+@property(weak, nonatomic) UITableView *tableView;
 
-@property(weak, nonatomic) id<DCDayEventSourceDelegate> delegate;
+@property(weak, nonatomic) id <DCDayEventSourceDelegate> delegate;
 
-- (instancetype)initWithTableView:(UITableView*)tableView
-                    eventStrategy:(DCEventStrategy*)eventStrategy
-                             date:(NSDate*)date;
-- (void)updateActualEventIndexPathForTimeRange:(NSArray*)array;
-- (NSArray*)eventsSortedByTimeRange:(NSArray*)events
-                withUniqueTimeRange:(NSArray*)unqueTimeRange
-                              class:(Class)eventClass;
+- (instancetype)initWithTableView:(UITableView *)tableView
+                    eventStrategy:(DCEventStrategy *)eventStrategy
+                             date:(NSDate *)date;
+
+- (void)updateActualEventIndexPathForTimeRange:(NSArray *)array;
+
+- (NSArray *)eventsSortedByTimeRange:(NSArray *)events
+                 withUniqueTimeRange:(NSArray *)unqueTimeRange
+                               class:(Class)eventClass;
+
 // Callbacks for update delegate methods
 - (void)dataSourceStartUpdateEvents;
+
 - (void)dataSourceEndUpdateEvents;
 @end

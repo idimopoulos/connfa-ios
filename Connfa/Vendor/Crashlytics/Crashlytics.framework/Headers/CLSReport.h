@@ -15,13 +15,13 @@ NS_ASSUME_NONNULL_BEGIN
  **/
 @protocol CLSCrashReport <NSObject>
 
-@property (nonatomic, copy, readonly) NSString *identifier;
-@property (nonatomic, copy, readonly) NSDictionary *customKeys;
-@property (nonatomic, copy, readonly) NSString *bundleVersion;
-@property (nonatomic, copy, readonly) NSString *bundleShortVersionString;
-@property (nonatomic, copy, readonly) NSDate *crashedOnDate;
-@property (nonatomic, copy, readonly) NSString *OSVersion;
-@property (nonatomic, copy, readonly) NSString *OSBuildVersion;
+@property(nonatomic, copy, readonly) NSString *identifier;
+@property(nonatomic, copy, readonly) NSDictionary *customKeys;
+@property(nonatomic, copy, readonly) NSString *bundleVersion;
+@property(nonatomic, copy, readonly) NSString *bundleShortVersionString;
+@property(nonatomic, copy, readonly) NSDate *crashedOnDate;
+@property(nonatomic, copy, readonly) NSString *OSVersion;
+@property(nonatomic, copy, readonly) NSString *OSBuildVersion;
 
 @end
 
@@ -33,47 +33,48 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CLSReport : NSObject <CLSCrashReport>
 
 - (instancetype)init NS_UNAVAILABLE;
+
 + (instancetype)new NS_UNAVAILABLE;
 
 /**
  * Returns the session identifier for the report.
  **/
-@property (nonatomic, copy, readonly) NSString *identifier;
+@property(nonatomic, copy, readonly) NSString *identifier;
 
 /**
  * Returns the custom key value data for the report.
  **/
-@property (nonatomic, copy, readonly) NSDictionary *customKeys;
+@property(nonatomic, copy, readonly) NSDictionary *customKeys;
 
 /**
  * Returns the CFBundleVersion of the application that generated the report.
  **/
-@property (nonatomic, copy, readonly) NSString *bundleVersion;
+@property(nonatomic, copy, readonly) NSString *bundleVersion;
 
 /**
  * Returns the CFBundleShortVersionString of the application that generated the report.
  **/
-@property (nonatomic, copy, readonly) NSString *bundleShortVersionString;
+@property(nonatomic, copy, readonly) NSString *bundleShortVersionString;
 
 /**
  * Returns the date that the report was created.
  **/
-@property (nonatomic, copy, readonly) NSDate *dateCreated;
+@property(nonatomic, copy, readonly) NSDate *dateCreated;
 
 /**
  * Returns the os version that the application crashed on.
  **/
-@property (nonatomic, copy, readonly) NSString *OSVersion;
+@property(nonatomic, copy, readonly) NSString *OSVersion;
 
 /**
  * Returns the os build version that the application crashed on.
  **/
-@property (nonatomic, copy, readonly) NSString *OSBuildVersion;
+@property(nonatomic, copy, readonly) NSString *OSBuildVersion;
 
 /**
  * Returns YES if the report contains any crash information, otherwise returns NO.
  **/
-@property (nonatomic, assign, readonly) BOOL isCrash;
+@property(nonatomic, assign, readonly) BOOL isCrash;
 
 /**
  * You can use this method to set, after the event, additional custom keys. The rules
@@ -86,17 +87,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Record an application-specific user identifier. See Crashlytics.h for details.
  **/
-@property (nonatomic, copy, nullable) NSString * userIdentifier;
+@property(nonatomic, copy, nullable) NSString *userIdentifier;
 
 /**
  * Record a user name. See Crashlytics.h for details.
  **/
-@property (nonatomic, copy, nullable) NSString * userName;
+@property(nonatomic, copy, nullable) NSString *userName;
 
 /**
  * Record a user email. See Crashlytics.h for details.
  **/
-@property (nonatomic, copy, nullable) NSString * userEmail;
+@property(nonatomic, copy, nullable) NSString *userEmail;
 
 @end
 

@@ -11,7 +11,7 @@
 @implementation DCTrack (CoreDataProperties)
 
 + (NSFetchRequest<DCTrack *> *)fetchRequest {
-	return [[NSFetchRequest alloc] initWithEntityName:@"DCTrack"];
+    return [[NSFetchRequest alloc] initWithEntityName:@"DCTrack"];
 }
 
 @dynamic name;

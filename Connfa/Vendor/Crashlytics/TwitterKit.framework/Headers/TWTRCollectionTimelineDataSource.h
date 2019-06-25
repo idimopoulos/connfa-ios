@@ -18,12 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The number of Tweets to request in each query to the Twitter Timeline API when fetching the next batch of Tweets.
  */
-@property (nonatomic, readonly) NSInteger maxTweetsPerRequest;
+@property(nonatomic, readonly) NSInteger maxTweetsPerRequest;
 
 /**
  *  ID of the collection.
  */
-@property (nonatomic, copy, readonly) NSString *collectionID;
+@property(nonatomic, copy, readonly) NSString *collectionID;
 
 /**
  *  Convenience initializer.

@@ -22,15 +22,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CLSStackFrame : NSObject
 
 + (instancetype)stackFrame;
+
 + (instancetype)stackFrameWithAddress:(NSUInteger)address;
+
 + (instancetype)stackFrameWithSymbol:(NSString *)symbol;
 
-@property (nonatomic, copy, nullable) NSString *symbol;
-@property (nonatomic, copy, nullable) NSString *library;
-@property (nonatomic, copy, nullable) NSString *fileName;
-@property (nonatomic, assign) uint32_t lineNumber;
-@property (nonatomic, assign) uint64_t offset;
-@property (nonatomic, assign) uint64_t address;
+@property(nonatomic, copy, nullable) NSString *symbol;
+@property(nonatomic, copy, nullable) NSString *library;
+@property(nonatomic, copy, nullable) NSString *fileName;
+@property(nonatomic, assign) uint32_t lineNumber;
+@property(nonatomic, assign) uint64_t offset;
+@property(nonatomic, assign) uint64_t address;
 
 @end
 

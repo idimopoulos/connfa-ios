@@ -10,34 +10,33 @@
 
 #pragma mark - ManagedObjectUpdateProtocol
 
-+ (void)updateFromDictionary:(NSDictionary*)events
-                   inContext:(NSManagedObjectContext*)context;
-{
-  for (NSDictionary* day in events[kDCEventDaysKey]) {
-    NSDate* date = [NSDate fabricateWithEventString:day[kDCEventDateKey]];
-    for (NSDictionary* event in day[kDCEventsKey]) {
-      DCBof* bofInstance = (DCBof*)
-          [[DCMainProxy sharedProxy] objectForID:[event[kDCEventIdKey] intValue]
-                                         ofClass:[DCBof class]
-                                       inContext:context];
++ (void)updateFromDictionary:(NSDictionary *)events
+                   inContext:(NSManagedObjectContext *)context; {
+    for (NSDictionary *day in events[kDCEventDaysKey]) {
+        NSDate *date = [NSDate fabricateWithEventString:day[kDCEventDateKey]];
+        for (NSDictionary *event in day[kDCEventsKey]) {
+            DCBof *bofInstance = (DCBof *)
+                    [[DCMainProxy sharedProxy] objectForID:[event[kDCEventIdKey] intValue]
+                                                   ofClass:[DCBof class]
+                                                 inContext:context];
 
-      if (!bofInstance)  // create
-          {
-        bofInstance = [DCBof createManagedObjectInContext:context];
-      }
-      if ([event[kDCParseObjectDeleted] intValue] == 1)  // remove
-          {
-        [[DCMainProxy sharedProxy] removeItem:bofInstance];
+            if (!bofInstance)  // create
+            {
+                bofInstance = [DCBof createManagedObjectInContext:context];
+            }
+            if ([event[kDCParseObjectDeleted] intValue] == 1)  // remove
+            {
+                [[DCMainProxy sharedProxy] removeItem:bofInstance];
 
-      } else  // update
-          {
-        [bofInstance
-            updateFromDictionary:event
-                         forData:date];  // DCBof parseEventFromDictionaty:event
-                                         // toObject:bofInstance forDate:date];
-      }
+            } else  // update
+            {
+                [bofInstance
+                        updateFromDictionary:event
+                                     forData:date];  // DCBof parseEventFromDictionaty:event
+                // toObject:bofInstance forDate:date];
+            }
+        }
     }
-  }
 }
 
 @end

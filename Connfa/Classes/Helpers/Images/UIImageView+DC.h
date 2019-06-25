@@ -4,6 +4,7 @@
 @interface UIImageView (DC)
 
 - (void)cutCircle;
-- (void)addCircuitWidth:(float)width color:(UIColor*)color;
+
+- (void)addCircuitWidth:(float)width color:(UIColor *)color;
 
 @end

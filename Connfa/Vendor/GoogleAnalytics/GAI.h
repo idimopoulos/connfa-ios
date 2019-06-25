@@ -12,9 +12,9 @@
 
 
 typedef NS_ENUM(NSUInteger, GAIDispatchResult) {
-  kGAIDispatchNoData,
-  kGAIDispatchGood,
-  kGAIDispatchError
+    kGAIDispatchNoData,
+    kGAIDispatchGood,
+    kGAIDispatchError
 };
 
 /*! Google Analytics product string.  */
@@ -31,14 +31,14 @@ extern NSString *const kGAIErrorDomain;
 
 /*! Google Analytics error codes.  */
 typedef enum {
-  // This error code indicates that there was no error. Never used.
-  kGAINoError = 0,
+    // This error code indicates that there was no error. Never used.
+            kGAINoError = 0,
 
-  // This error code indicates that there was a database-related error.
-  kGAIDatabaseError,
+    // This error code indicates that there was a database-related error.
+            kGAIDatabaseError,
 
-  // This error code indicates that there was a network-related error.
-  kGAINetworkError,
+    // This error code indicates that there was a network-related error.
+            kGAINetworkError,
 } GAIErrorCode;
 
 /*!
@@ -54,12 +54,12 @@ typedef enum {
 
  The GAITrackedViewController class will, by default, use this tracker instance.
  */
-@property(nonatomic, assign) id<GAITracker> defaultTracker;
+@property(nonatomic, assign) id <GAITracker> defaultTracker;
 
 /*!
  The GAILogger to use.
  */
-@property(nonatomic, retain) id<GAILogger> logger;
+@property(nonatomic, retain) id <GAILogger> logger;
 
 /*!
  When this is true, no tracking information will be gathered; tracking calls
@@ -126,8 +126,8 @@ typedef enum {
  If an error occurs or the name is not valid, this method will return
  `nil`.
  */
-- (id<GAITracker>)trackerWithName:(NSString *)name
-                       trackingId:(NSString *)trackingId;
+- (id <GAITracker>)trackerWithName:(NSString *)name
+                        trackingId:(NSString *)trackingId;
 
 /*!
  Creates or retrieves a GAITracker implementation with name equal to
@@ -151,7 +151,7 @@ typedef enum {
  If an error occurs or the trackingId is not valid, this method will return
  `nil`.
  */
-- (id<GAITracker>)trackerWithTrackingId:(NSString *)trackingId;
+- (id <GAITracker>)trackerWithTrackingId:(NSString *)trackingId;
 
 /*!
  Remove a tracker from the trackers dictionary. If it is the default tracker,

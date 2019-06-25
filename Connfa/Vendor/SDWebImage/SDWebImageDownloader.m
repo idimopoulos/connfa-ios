@@ -18,12 +18,12 @@ static NSString *const kCompletedCallbackKey = @"completed";
 
 @interface SDWebImageDownloader ()
 
-@property (strong, nonatomic) NSOperationQueue *downloadQueue;
-@property (weak, nonatomic) NSOperation *lastAddedOperation;
-@property (strong, nonatomic) NSMutableDictionary *URLCallbacks;
-@property (strong, nonatomic) NSMutableDictionary *HTTPHeaders;
+@property(strong, nonatomic) NSOperationQueue *downloadQueue;
+@property(weak, nonatomic) NSOperation *lastAddedOperation;
+@property(strong, nonatomic) NSMutableDictionary *URLCallbacks;
+@property(strong, nonatomic) NSMutableDictionary *HTTPHeaders;
 // This queue is used to serialize the handling of the network responses of all the download operation in a single queue
-@property (SDDispatchQueueSetterSementics, nonatomic) dispatch_queue_t barrierQueue;
+@property(SDDispatchQueueSetterSementics, nonatomic) dispatch_queue_t barrierQueue;
 
 @end
 
@@ -82,8 +82,7 @@ static NSString *const kCompletedCallbackKey = @"completed";
 - (void)setValue:(NSString *)value forHTTPHeaderField:(NSString *)field {
     if (value) {
         self.HTTPHeaders[field] = value;
-    }
-    else {
+    } else {
         [self.HTTPHeaders removeObjectForKey:field];
     }
 }
@@ -120,8 +119,7 @@ static NSString *const kCompletedCallbackKey = @"completed";
         request.HTTPShouldUsePipelining = YES;
         if (wself.headersFilter) {
             request.allHTTPHeaderFields = wself.headersFilter(url, [wself.HTTPHeaders copy]);
-        }
-        else {
+        } else {
             request.allHTTPHeaderFields = wself.HTTPHeaders;
         }
         operation = [[SDWebImageDownloaderOperation alloc] initWithRequest:request
@@ -152,11 +150,11 @@ static NSString *const kCompletedCallbackKey = @"completed";
                                                                      if (!sself) return;
                                                                      [sself removeCallbacksForURL:url];
                                                                  }];
-        
+
         if (wself.username && wself.password) {
             operation.credential = [NSURLCredential credentialWithUser:wself.username password:wself.password persistence:NSURLCredentialPersistenceForSession];
         }
-        
+
         if (options & SDWebImageDownloaderHighPriority) {
             operation.queuePriority = NSOperationQueuePriorityHigh;
         } else if (options & SDWebImageDownloaderLowPriority) {

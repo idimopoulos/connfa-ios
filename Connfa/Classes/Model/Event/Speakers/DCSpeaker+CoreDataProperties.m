@@ -11,7 +11,7 @@
 @implementation DCSpeaker (CoreDataProperties)
 
 + (NSFetchRequest<DCSpeaker *> *)fetchRequest {
-	return [[NSFetchRequest alloc] initWithEntityName:@"DCSpeaker"];
+    return [[NSFetchRequest alloc] initWithEntityName:@"DCSpeaker"];
 }
 
 @dynamic avatarPath;

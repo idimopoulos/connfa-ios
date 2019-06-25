@@ -5,11 +5,11 @@
 #import "DCEventDataSource.h"
 
 typedef enum : NSUInteger {
-  DCStateNormal,
-  DCStateEmpty,
+    DCStateNormal,
+    DCStateEmpty,
 } DCState;
 
-@protocol DCUpdateDayEventProtocol<NSObject>
+@protocol DCUpdateDayEventProtocol <NSObject>
 
 - (void)updateEvents;
 
@@ -20,19 +20,19 @@ typedef enum : NSUInteger {
  *
  */
 @interface DCDayEventsController
-    : DCBaseViewController<DCUpdateDayEventProtocol>
+        : DCBaseViewController <DCUpdateDayEventProtocol>
 
-@property(nonatomic) IBOutlet UITableView* tableView;
+@property(nonatomic) IBOutlet UITableView *tableView;
 
 /**
  *  Day date for current events
  */
-@property(nonatomic, strong) NSDate* date;
-@property(nonatomic) DCEventDataSource* eventsDataSource;
+@property(nonatomic, strong) NSDate *date;
+@property(nonatomic) DCEventDataSource *eventsDataSource;
 
 
-@property(nonatomic, weak) DCProgramViewController* parentProgramController;
-@property(nonatomic, strong) DCEventStrategy* eventsStrategy;
+@property(nonatomic, weak) DCProgramViewController *parentProgramController;
+@property(nonatomic, strong) DCEventStrategy *eventsStrategy;
 @property(nonatomic) DCState state;
 
 - (void)updateEvents;

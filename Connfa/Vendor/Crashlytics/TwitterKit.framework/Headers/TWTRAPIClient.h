@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-FOUNDATION_EXPORT NSString * const TWTRTweetsNotLoadedKey;
+FOUNDATION_EXPORT NSString *const TWTRTweetsNotLoadedKey;
 
 /**
  *  @name Completion Block Types
@@ -25,7 +25,7 @@ FOUNDATION_EXPORT NSString * const TWTRTweetsNotLoadedKey;
  *  @param user  The Twitter User.
  *  @param error Error that will be set if the API request failed.
  */
-typedef void (^TWTRLoadUserCompletion)(TWTRUser * _Nullable user, NSError * _Nullable error);
+typedef void (^TWTRLoadUserCompletion)(TWTRUser *_Nullable user, NSError *_Nullable error);
 
 /**
  *  Completion block called when the load Tweet request succeeds or fails.
@@ -33,7 +33,7 @@ typedef void (^TWTRLoadUserCompletion)(TWTRUser * _Nullable user, NSError * _Nul
  *  @param tweet The Twitter Tweet.
  *  @param error Error that will be set if the API request failed.
  */
-typedef void (^TWTRLoadTweetCompletion)(TWTRTweet * _Nullable tweet, NSError * _Nullable error);
+typedef void (^TWTRLoadTweetCompletion)(TWTRTweet *_Nullable tweet, NSError *_Nullable error);
 
 /**
  *  Completion block called when the load Tweets request succeeds or fails.
@@ -41,7 +41,7 @@ typedef void (^TWTRLoadTweetCompletion)(TWTRTweet * _Nullable tweet, NSError * _
  *  @param tweets Tweets that were successfully retrieved.
  *  @param error  Error that will be set if the API request failed.
  */
-typedef void (^TWTRLoadTweetsCompletion)(NSArray<TWTRTweet *> * _Nullable tweets, NSError * _Nullable error);
+typedef void (^TWTRLoadTweetsCompletion)(NSArray<TWTRTweet *> *_Nullable tweets, NSError *_Nullable error);
 
 /**
  *  Completion block called when the network request succeeds or fails.
@@ -50,7 +50,7 @@ typedef void (^TWTRLoadTweetsCompletion)(NSArray<TWTRTweet *> * _Nullable tweets
  *  @param data            Content data of the response.
  *  @param connectionError Error object describing the network error that occurred.
  */
-typedef void (^TWTRNetworkCompletion)(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError);
+typedef void (^TWTRNetworkCompletion)(NSURLResponse *_Nullable response, NSData *_Nullable data, NSError *_Nullable connectionError);
 
 /**
  *  Completion block called when a JSON request to the Twitter API succeeds or fails.
@@ -59,7 +59,7 @@ typedef void (^TWTRNetworkCompletion)(NSURLResponse * _Nullable response, NSData
  *  @param responseObject Content data of the response.
  *  @param error          Error object describing the network error that occurred.
  */
-typedef void (^TWTRJSONRequestCompletion)(NSURLResponse * _Nullable response, id _Nullable responseObject, NSError * _Nullable error);
+typedef void (^TWTRJSONRequestCompletion)(NSURLResponse *_Nullable response, id _Nullable responseObject, NSError *_Nullable error);
 
 /**
  *  Completion block called when a Tweet action (favorite/retweet) is performed.
@@ -73,7 +73,7 @@ typedef void (^TWTRJSONRequestCompletion)(NSURLResponse * _Nullable response, id
  *                  for an attempted action that has already been taken from the servers
  *                  point of view for this logged-in user.
  */
-typedef void (^TWTRTweetActionCompletion)(TWTRTweet * _Nullable tweet, NSError * _Nullable error);
+typedef void (^TWTRTweetActionCompletion)(TWTRTweet *_Nullable tweet, NSError *_Nullable error);
 
 /**
  *  Completion block called when a media upload request to the Twitter API succeeds or fails.
@@ -81,7 +81,7 @@ typedef void (^TWTRTweetActionCompletion)(TWTRTweet * _Nullable tweet, NSError *
  *  @param mediaID The media ID of the object that was uploaded which can be used when tweeting.
  *  @param error   Error object describing the network error that occurred.
  */
-typedef void (^TWTRMediaUploadResponseCompletion)(NSString * _Nullable mediaID, NSError * _Nullable error);
+typedef void (^TWTRMediaUploadResponseCompletion)(NSString *_Nullable mediaID, NSError *_Nullable error);
 
 /**
  *  Client for consuming the Twitter REST API. Provides methods for common API requests, as well as the ability to create and send custom requests.
@@ -92,7 +92,7 @@ typedef void (^TWTRMediaUploadResponseCompletion)(NSString * _Nullable mediaID, 
  *  The Twitter user ID this client is making API requests on behalf of or
  *  nil if it is a guest user.
  */
-@property (nonatomic, copy, readonly, nullable) NSString *userID;
+@property(nonatomic, copy, readonly, nullable) NSString *userID;
 
 
 /**

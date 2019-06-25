@@ -4,6 +4,6 @@
 
 @interface NSFileManager (DC)
 
-+ (NSURL*)appLibraryDirectory;
++ (NSURL *)appLibraryDirectory;
 
 @end

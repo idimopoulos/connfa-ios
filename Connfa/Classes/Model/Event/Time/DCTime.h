@@ -4,7 +4,7 @@
 
 @interface DCTime : NSManagedObject
 
-@property(nonatomic, retain) NSNumber* hour;
-@property(nonatomic, retain) NSNumber* minute;
+@property(nonatomic, retain) NSNumber *hour;
+@property(nonatomic, retain) NSNumber *minute;
 
 @end

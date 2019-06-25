@@ -52,20 +52,20 @@ static char imageURLStorageKey;
 
     [self setImage:placeholder forState:state];
     [self sd_cancelImageLoadForState:state];
-    
+
     if (!url) {
         [self.imageURLStorage removeObjectForKey:@(state)];
-        
+
         dispatch_main_async_safe(^{
-            NSError *error = [NSError errorWithDomain:@"SDWebImageErrorDomain" code:-1 userInfo:@{NSLocalizedDescriptionKey : @"Trying to load a nil url"}];
+            NSError *error = [NSError errorWithDomain:@"SDWebImageErrorDomain" code:-1 userInfo:@{NSLocalizedDescriptionKey: @"Trying to load a nil url"}];
             if (completedBlock) {
                 completedBlock(nil, error, SDImageCacheTypeNone, url);
             }
         });
-        
+
         return;
     }
-    
+
     self.imageURLStorage[@(state)] = url;
 
     __weak UIButton *wself = self;
@@ -128,7 +128,7 @@ static char imageURLStorageKey;
         [self sd_setBackgroundImageLoadOperation:operation forState:state];
     } else {
         dispatch_main_async_safe(^{
-            NSError *error = [NSError errorWithDomain:@"SDWebImageErrorDomain" code:-1 userInfo:@{NSLocalizedDescriptionKey : @"Trying to load a nil url"}];
+            NSError *error = [NSError errorWithDomain:@"SDWebImageErrorDomain" code:-1 userInfo:@{NSLocalizedDescriptionKey: @"Trying to load a nil url"}];
             if (completedBlock) {
                 completedBlock(nil, error, SDImageCacheTypeNone, url);
             }
@@ -136,7 +136,7 @@ static char imageURLStorageKey;
     }
 }
 
-- (void)sd_setImageLoadOperation:(id<SDWebImageOperation>)operation forState:(UIControlState)state {
+- (void)sd_setImageLoadOperation:(id <SDWebImageOperation>)operation forState:(UIControlState)state {
     [self sd_setImageLoadOperation:operation forKey:[NSString stringWithFormat:@"UIButtonImageOperation%@", @(state)]];
 }
 
@@ -144,7 +144,7 @@ static char imageURLStorageKey;
     [self sd_cancelImageLoadOperationWithKey:[NSString stringWithFormat:@"UIButtonImageOperation%@", @(state)]];
 }
 
-- (void)sd_setBackgroundImageLoadOperation:(id<SDWebImageOperation>)operation forState:(UIControlState)state {
+- (void)sd_setBackgroundImageLoadOperation:(id <SDWebImageOperation>)operation forState:(UIControlState)state {
     [self sd_setImageLoadOperation:operation forKey:[NSString stringWithFormat:@"UIButtonBackgroundImageOperation%@", @(state)]];
 }
 
@@ -154,8 +154,7 @@ static char imageURLStorageKey;
 
 - (NSMutableDictionary *)imageURLStorage {
     NSMutableDictionary *storage = objc_getAssociatedObject(self, &imageURLStorageKey);
-    if (!storage)
-    {
+    if (!storage) {
         storage = [NSMutableDictionary dictionary];
         objc_setAssociatedObject(self, &imageURLStorageKey, storage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }

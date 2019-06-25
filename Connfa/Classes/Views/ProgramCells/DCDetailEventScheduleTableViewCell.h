@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DCDetailEventScheduleTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *scheduleName;
-@property (weak, nonatomic) IBOutlet UIView *separator;
+@property(weak, nonatomic) IBOutlet UILabel *scheduleName;
+@property(weak, nonatomic) IBOutlet UIView *separator;
 
 @end

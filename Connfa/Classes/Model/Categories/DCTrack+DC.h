@@ -2,6 +2,6 @@
 #import "DCTrack+CoreDataProperties.h"
 #import "DCManagedObjectUpdateProtocol.h"
 
-@interface DCTrack (DC)<ManagedObjectUpdateProtocol>
+@interface DCTrack (DC) <ManagedObjectUpdateProtocol>
 
 @end

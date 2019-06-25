@@ -12,16 +12,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Enum of the possible Twitter Card types.
  */
-typedef NS_ENUM(NSUInteger, TWTRCardType){
+typedef NS_ENUM(NSUInteger, TWTRCardType) {
     /**
      *  A Twitter App Card that includes a promotional image.
      */
-    TWTRCardTypePromoImageApp,
+            TWTRCardTypePromoImageApp,
 
     /**
      *  An unknown or unsupported Twitter Card type.
      */
-    TWTRCardTypeUnknown
+            TWTRCardTypeUnknown
 };
 
 /**
@@ -34,24 +34,24 @@ typedef NS_ENUM(NSUInteger, TWTRCardType){
 /**
  *  Type of Twitter Card configuration.
  */
-@property (nonatomic, readonly) TWTRCardType cardType;
+@property(nonatomic, readonly) TWTRCardType cardType;
 
 /**
  *  Title of the Card.
  */
-@property (nonatomic, readonly, copy, nullable) NSString *cardTitle;
+@property(nonatomic, readonly, copy, nullable) NSString *cardTitle;
 
 /**
  *  Description of the Card.
  */
-@property (nonatomic, readonly, copy, nullable) NSString *cardDescription;
+@property(nonatomic, readonly, copy, nullable) NSString *cardDescription;
 
 /**
  *  Unique image representing the content. Size of the image cannot exceed 1MB.
  *  The minimum dimensions can vary depending on the Card type. See https://dev.twitter.com/cards/types
  *  for more detailed requirements.
  */
-@property (nonatomic, readonly, nullable) UIImage *image;
+@property(nonatomic, readonly, nullable) UIImage *image;
 
 - (instancetype)init NS_UNAVAILABLE;
 
