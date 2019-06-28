@@ -11,19 +11,17 @@
 
 @implementation DCConstants
 
-NSString *const BASE_URL = @"https://connfa.guadec.org/api/v2/guadec2019/";;
-NSString *const SERVER_URL = @"https://connfa.guadec.org/";
+NSString *const BASE_URL = @"https://data.gnest.org/api/v2/CEST2019/";
+NSString *const SERVER_URL = @"https://data.gnest.org/";
 NSString *const BUNDLE_NAME = @"DC-Theme";
 NSString *const GOOGLE_ANALYTICS_APP_ID = @"UA-93776333-4";
 NSString *const TWITTER_API_KEY = @"Mxl1GoGSM98T3jTIWdlUuqXmh";
 NSString *const TWITTER_API_SECRET = @"UM74rykaGhxPhhKED2KxJrd6zGBLNWgVsGdlzjdSwSNqLTiyqY";
-NSString *const EVENT_NAME = @"GUADEC";
+NSString *const EVENT_NAME = @"CEST2019";
 
 + (NSArray *)appMenuItems {
     NSArray *menuItems = @[
             [DCMenuItem initWithTitle:@"Sessions" icon:@"menu_icon_program" selectedIcon:@"menu_icon_program_sel" controllerId:@"DCProgramViewController" andMenuType:@(DCMENU_PROGRAM_ITEM)],
-
-            [DCMenuItem initWithTitle:@"BoFs" icon:@"menu_icon_bofs" selectedIcon:@"menu_icon_bofs_sel" controllerId:@"DCProgramViewController" andMenuType:@(DCMENU_BOFS_ITEM)],
 
             [DCMenuItem initWithTitle:@"Social Events" icon:@"menu_icon_social" selectedIcon:@"menu_icon_social_sel" controllerId:@"DCProgramViewController" andMenuType:@(DCMENU_SOCIAL_EVENTS_ITEM)],
 

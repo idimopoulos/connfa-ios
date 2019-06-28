@@ -189,7 +189,7 @@
 		282BD3B01E7191A0009763EC /* DCFontItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCFontItem.h; sourceTree = "<group>"; };
 		282BD3B11E7191A0009763EC /* DCFontItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCFontItem.m; sourceTree = "<group>"; };
 		287E7BC81E8535A200E03F56 /* Merriweather-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Regular.ttf"; sourceTree = "<group>"; };
-		288C5F7C1E6D9E4A00F07CB4 /* GUADEC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GUADEC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		288C5F7C1E6D9E4A00F07CB4 /* CEST2019.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CEST2019.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		288C5FA61E6D9E8C00F07CB4 /* DCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCConstants.m; sourceTree = "<group>"; };
 		288C5FA91E6D9E8C00F07CB4 /* DC-Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "DC-Images.xcassets"; sourceTree = "<group>"; };
 		288C5FAA1E6D9E8C00F07CB4 /* DC-Theme.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "DC-Theme.bundle"; sourceTree = "<group>"; };
@@ -623,7 +623,7 @@
 		5DC8C412198656DA00BF5816 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				288C5F7C1E6D9E4A00F07CB4 /* GUADEC.app */,
+				288C5F7C1E6D9E4A00F07CB4 /* CEST2019.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1606,9 +1606,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		288C5ED71E6D9E4A00F07CB4 /* GUADEC */ = {
+		288C5ED71E6D9E4A00F07CB4 /* CEST2019 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 288C5F791E6D9E4A00F07CB4 /* Build configuration list for PBXNativeTarget "GUADEC" */;
+			buildConfigurationList = 288C5F791E6D9E4A00F07CB4 /* Build configuration list for PBXNativeTarget "CEST2019" */;
 			buildPhases = (
 				288C5ED81E6D9E4A00F07CB4 /* Sources */,
 				288C5F531E6D9E4A00F07CB4 /* Frameworks */,
@@ -1619,9 +1619,9 @@
 			);
 			dependencies = (
 			);
-			name = GUADEC;
+			name = CEST2019;
 			productName = Connfa;
-			productReference = 288C5F7C1E6D9E4A00F07CB4 /* GUADEC.app */;
+			productReference = 288C5F7C1E6D9E4A00F07CB4 /* CEST2019.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1656,7 +1656,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				288C5ED71E6D9E4A00F07CB4 /* GUADEC */,
+				288C5ED71E6D9E4A00F07CB4 /* CEST2019 */,
 			);
 		};
 /* End PBXProject section */
@@ -1882,7 +1882,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Connfa/Vendor/GoogleAnalytics",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnome.guadec;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnest.cest2019;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1916,7 +1916,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Connfa/Vendor/GoogleAnalytics",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.gnome.guadec;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gnest.cest2019;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2029,7 +2029,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		288C5F791E6D9E4A00F07CB4 /* Build configuration list for PBXNativeTarget "GUADEC" */ = {
+		288C5F791E6D9E4A00F07CB4 /* Build configuration list for PBXNativeTarget "CEST2019" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				288C5F7A1E6D9E4A00F07CB4 /* Debug */,

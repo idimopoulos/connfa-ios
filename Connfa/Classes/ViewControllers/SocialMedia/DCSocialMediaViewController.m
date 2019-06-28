@@ -36,7 +36,7 @@
     [self setNeedsStatusBarAppearanceUpdate];
     [self arrangeNavigationBar];
     
-    NSString *HTML = @"<a class=\"twitter-timeline\" data-theme=\"light\" href=\"https://twitter.com/gnome?ref_src=twsrc^tfw\">Tweets by gnome</a> <script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>";
+    NSString *HTML = @"<a class=\"twitter-timeline\" data-theme=\"light\" href=\"https://twitter.com/CEST2019_RODOS?ref_src=twsrc^tfw\">Tweets by CEST2019</a> <script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>";
     [self.webView loadHTMLString:HTML baseURL:[NSURL URLWithString:@"https://twitter.com"]];
 }
 
