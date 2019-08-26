@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Connfa.xcodeproj">
+      location = "group:/Users/pavlosskoupras/Documents/GitHub/CEST2019/connfa-ios/CEST2019.xcodeproj">
    </FileRef>
 </Workspace>
